@@ -143,7 +143,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NEXT"
-        android:id="@+id/button12"
+        android:id="@+id/nextButton"
         android:layout_alignTop="@+id/button10"
         android:layout_alignLeft="@+id/button9"
         android:layout_alignStart="@+id/button9" />
@@ -152,8 +152,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="HOME"
-        android:id="@+id/button13"
-        android:layout_alignBottom="@+id/button12"
+        android:id="@+id/HomeButton"
+        android:layout_alignBottom="@+id/nextButton"
         android:layout_alignRight="@+id/button7"
         android:layout_alignEnd="@+id/button7" />
 </RelativeLayout>
