@@ -91,18 +91,20 @@ public class CardSelector extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.himalayas) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.rain) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.desert) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.volcano) {
+
+        } else if (id == R.id.neptune) {
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
-
+//        } else if (id == R.id.scoreScreen) {
+//
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

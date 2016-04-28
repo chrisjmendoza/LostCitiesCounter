@@ -23,10 +23,10 @@
                 android:id="@+id/neptune"
                 android:icon="@drawable/ic_menu_gallery"
                 android:title="@string/neptune" />
-            <item
-                android:id="@+id/scoreScreen"
-                android:icon="@drawable/ic_menu_gallery"
-                android:title="@string/finalScoreScreen" />
+            <!--<item-->
+                <!--android:id="@+id/scoreScreen"-->
+                <!--android:icon="@drawable/ic_menu_gallery"-->
+                <!--android:title="@string/finalScoreScreen" />-->
         </menu>
     </group>
 
@@ -35,11 +35,11 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="@string/feedback" />
+            <!--<item-->
+            <!--android:id="@+id/nav_send"-->
+            <!--android:icon="@drawable/ic_menu_send"-->
+            <!--android:title="Send" />-->
         </menu>
     </item>
 
