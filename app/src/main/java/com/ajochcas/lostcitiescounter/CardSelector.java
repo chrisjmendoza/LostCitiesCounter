@@ -51,6 +51,15 @@ public class CardSelector extends AppCompatActivity
             }
 
         });
+
+        Button homeButton = (Button) findViewById(R.id.homeButton);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CardSelector.this, Landing.class);
+            }
+
+        });
     }
 
     @Override
