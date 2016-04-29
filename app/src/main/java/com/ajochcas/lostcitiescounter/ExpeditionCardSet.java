@@ -35,7 +35,7 @@ public class ExpeditionCardSet {
 
     /**
      * 0-2 are $ sign cards
-     * 3-13 are value cards.
+     * 3-12 are value cards.
      */
     public boolean[] cards;
 

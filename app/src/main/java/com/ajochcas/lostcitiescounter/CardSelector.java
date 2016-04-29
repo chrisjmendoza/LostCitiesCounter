@@ -3,8 +3,6 @@ package com.ajochcas.lostcitiescounter;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,6 +20,8 @@ public class CardSelector extends AppCompatActivity
     MediaPlayer volcano;
     boolean allowMusic;
     boolean isPlaying = true;
+
+    ExpeditionCardSet cardSet = new ExpeditionCardSet();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,11 @@ public class CardSelector extends AppCompatActivity
         volcano.setLooping(true);
         volcano.start();
     }
+
+    public void cardSelect(View view) {
+        Button button = (Button) findViewById(view.getId());
+    }
+
 
     /**
      * Pauses or resumes the music, or doesn't play at all if the preference is turned off
