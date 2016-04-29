@@ -1,6 +1,7 @@
 package com.ajochcas.lostcitiescounter;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,6 +18,10 @@ import android.widget.Button;
 
 public class CardSelector extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    MediaPlayer volcano;
+    boolean allowMusic;
+    boolean isPlaying = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,26 @@ public class CardSelector extends AppCompatActivity
             }
 
         });
+
+        // Set the volcano sound, this will have to be modified with other expedition sounds later
+        volcano = MediaPlayer.create(CardSelector.this, R.raw.volcano);
+        volcano.setLooping(true);
+        volcano.start();
+    }
+
+    /**
+     * Pauses or resumes the music, or doesn't play at all if the preference is turned off
+     */
+    protected void musicPause() {
+        if (allowMusic) {
+            if (isPlaying) {
+                volcano.pause();
+                isPlaying = false;
+            } else {
+                volcano.start();
+                isPlaying = true;
+            }
+        }
     }
 
     @Override
@@ -110,5 +135,15 @@ public class CardSelector extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    /**
+     * Required for MediaPlayer Lifecycle, pause the music on app focus loss
+     */
+    @Override
+    protected void onPause() {
+        super.onPause();
+        volcano.release();
+        finish();
     }
 }

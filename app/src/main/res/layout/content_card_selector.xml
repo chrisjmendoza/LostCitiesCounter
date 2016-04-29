@@ -24,6 +24,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:soundEffectsEnabled="true"
         android:backgroundTint="@color/redButton"
         android:textColor="@color/white"
         android:text="$"
@@ -39,6 +40,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:soundEffectsEnabled="true"
         android:backgroundTint="@color/redButton"
         android:textColor="@color/white"
         android:text="$"
@@ -49,6 +51,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:soundEffectsEnabled="true"
         android:backgroundTint="@color/redButton"
         android:textColor="@color/white"
         android:text="$"
