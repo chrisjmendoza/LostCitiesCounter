@@ -43,7 +43,7 @@ public class CardSelector extends AppCompatActivity
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CardSelector.this, ScoreDisplay.class);
+                startActivity(new Intent(CardSelector.this, ScoreDisplay.class));
             }
 
         });
@@ -52,7 +52,7 @@ public class CardSelector extends AppCompatActivity
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CardSelector.this, Landing.class);
+                startActivity(new Intent(CardSelector.this, Landing.class));
             }
 
         });
