@@ -3,7 +3,6 @@ package com.ajochcas.lostcitiescounter;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,17 +11,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 public class CardSelector extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+    public final static String SCORE_OUTPUT = "com.ajochcas.lostcitiescounter.MESSAGE";
     MediaPlayer volcano;
     boolean allowMusic;
     boolean isPlaying = true;
-
-    public final static String SCORE_OUTPUT = "com.ajochcas.lostcitiescounter.MESSAGE";
-
     ExpeditionCardSet cardSet = new ExpeditionCardSet();
 
     @Override
@@ -53,121 +51,173 @@ public class CardSelector extends AppCompatActivity
 
         });
 
-        Button x1 = (Button) findViewById(R.id.x1);
+        final Button x1 = (Button) findViewById(R.id.x1);
         x1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardx1();
+                boolean clicked = cardx1();
+                if (!clicked) {
+                    x1.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
+                } else {
+                    x1.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
+                }
             }
-
         });
 
-        Button x2 = (Button) findViewById(R.id.x2);
+        final Button x2 = (Button) findViewById(R.id.x2);
         x2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardx2();
+                boolean clicked = cardx2();
+                if (!clicked) {
+                    x2.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
+                } else {
+                    x2.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
+                }
             }
-
         });
 
-        Button x3 = (Button) findViewById(R.id.x3);
+        final Button x3 = (Button) findViewById(R.id.x3);
         x3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardx3();
+                boolean clicked = cardx3();
+                if (!clicked) {
+                    x3.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
+                } else {
+                    x3.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
+                }
             }
-
         });
 
-        Button button1 = (Button) findViewById(R.id.button1);
+        final Button button1 = (Button) findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardOne();
+                boolean clicked = cardOne();
+                if (!clicked) {
+                    button1.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
+                } else {
+                    button1.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
+                }
             }
-
         });
 
-        Button button2 = (Button) findViewById(R.id.button2);
+        final Button button2 = (Button) findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardTwo();
+                boolean clicked = cardTwo();
+                if (!clicked) {
+                    button2.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
+                } else {
+                    button2.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
+                }
             }
-
         });
 
-        Button button3 = (Button) findViewById(R.id.button3);
+        final Button button3 = (Button) findViewById(R.id.button3);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardThree();
+                boolean clicked = cardThree();
+                if (!clicked) {
+                    button3.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
+                } else {
+                    button3.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
+                }
             }
-
         });
 
-        Button button4 = (Button) findViewById(R.id.button4);
+        final Button button4 = (Button) findViewById(R.id.button4);
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardFour();
+                boolean clicked = cardFour();
+                if (!clicked) {
+                    button4.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
+                } else {
+                    button4.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
+                }
             }
-
         });
 
-        Button button5 = (Button) findViewById(R.id.button5);
+        final Button button5 = (Button) findViewById(R.id.button5);
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardFive();
+                boolean clicked = cardFive();
+                if (!clicked) {
+                    button5.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
+                } else {
+                    button5.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
+                }
             }
-
         });
 
-        Button button6 = (Button) findViewById(R.id.button6);
+        final Button button6 = (Button) findViewById(R.id.button6);
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardSix();
+                boolean clicked = cardSix();
+                if (!clicked) {
+                    button6.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
+                } else {
+                    button6.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
+                }
             }
-
         });
 
-        Button button7 = (Button) findViewById(R.id.button7);
+        final Button button7 = (Button) findViewById(R.id.button7);
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardSeven();
+                boolean clicked = cardSeven();
+                if (!clicked) {
+                    button7.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
+                } else {
+                    button7.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
+                }
             }
-
         });
 
-        Button button8 = (Button) findViewById(R.id.button8);
+        final Button button8 = (Button) findViewById(R.id.button8);
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardEight();
+                boolean clicked = cardEight();
+                if (!clicked) {
+                    button8.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
+                } else {
+                    button8.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
+                }
             }
-
         });
 
-        Button button9 = (Button) findViewById(R.id.button9);
+        final Button button9 = (Button) findViewById(R.id.button9);
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardNine();
+                boolean clicked = cardNine();
+                if (!clicked) {
+                    button9.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
+                } else {
+                    button9.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
+                }
             }
-
         });
 
-        Button button10 = (Button) findViewById(R.id.button10);
+        final Button button10 = (Button) findViewById(R.id.button10);
         button10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardTen();
+                boolean clicked = cardTen();
+                if (!clicked) {
+                    button10.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
+                } else {
+                    button10.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
+                }
             }
-
         });
 
         Button homeButton = (Button) findViewById(R.id.homeButton);
@@ -185,108 +235,134 @@ public class CardSelector extends AppCompatActivity
         volcano.start();
     }
 
-    public void cardx1() {
-        if(!cardSet.cards[0]) {
+    public boolean cardx1() {
+        boolean clicked = cardSet.cards[0];
+        if (!clicked) {
             cardSet.cards[0] = true;
         } else {
             cardSet.cards[0] = false;
         }
+        return clicked;
     }
 
-    public void cardx2() {
-        if(!cardSet.cards[1]) {
+    public boolean cardx2() {
+        boolean clicked = cardSet.cards[1];
+        if (!clicked) {
             cardSet.cards[1] = true;
         } else {
             cardSet.cards[1] = false;
         }
+        return clicked;
     }
 
-    public void cardx3() {
-        if(!cardSet.cards[2]) {
+    public boolean cardx3() {
+        boolean clicked = cardSet.cards[2];
+        if (!clicked) {
             cardSet.cards[2] = true;
         } else {
             cardSet.cards[2] = false;
         }
+        return clicked;
     }
 
-    public void cardOne() {
-        if(!cardSet.cards[3]) {
+    public boolean cardOne() {
+        boolean clicked = cardSet.cards[3];
+        if (!clicked) {
             cardSet.cards[3] = true;
         } else {
             cardSet.cards[3] = false;
         }
+        return clicked;
     }
 
-    public void cardTwo() {
-        if(!cardSet.cards[4]) {
+    public boolean cardTwo() {
+        boolean clicked = cardSet.cards[4];
+        if (!clicked) {
             cardSet.cards[4] = true;
         } else {
             cardSet.cards[4] = false;
         }
+        return clicked;
     }
 
-    public void cardThree() {
-        if(!cardSet.cards[5]) {
+    public boolean cardThree() {
+        boolean clicked = cardSet.cards[5];
+        if (!clicked) {
             cardSet.cards[5] = true;
         } else {
             cardSet.cards[5] = false;
         }
+        return clicked;
     }
 
-    public void cardFour() {
-        if(!cardSet.cards[6]) {
+    public boolean cardFour() {
+        boolean clicked = cardSet.cards[6];
+        if (!clicked) {
             cardSet.cards[6] = true;
         } else {
             cardSet.cards[6] = false;
         }
+        return clicked;
     }
 
-    public void cardFive() {
-        if(!cardSet.cards[7]) {
+    public boolean cardFive() {
+        boolean clicked = cardSet.cards[7];
+        if (!clicked) {
             cardSet.cards[7] = true;
         } else {
             cardSet.cards[7] = false;
         }
+        return clicked;
     }
 
-    public void cardSix() {
-        if(!cardSet.cards[8]) {
+    public boolean cardSix() {
+        boolean clicked = cardSet.cards[8];
+        if (!clicked) {
             cardSet.cards[8] = true;
         } else {
             cardSet.cards[8] = false;
         }
+        return clicked;
     }
 
-    public void cardSeven() {
-        if(!cardSet.cards[9]) {
+    public boolean cardSeven() {
+        boolean clicked = cardSet.cards[9];
+        if (!clicked) {
             cardSet.cards[9] = true;
         } else {
             cardSet.cards[9] = false;
         }
+        return clicked;
     }
 
-    public void cardEight() {
-        if(!cardSet.cards[10]) {
+    public boolean cardEight() {
+        boolean clicked = cardSet.cards[10];
+        if (!clicked) {
             cardSet.cards[10] = true;
         } else {
             cardSet.cards[10] = false;
         }
+        return clicked;
     }
 
-    public void cardNine() {
-        if(!cardSet.cards[11]) {
-            cardSet.cards[11] = true;
+    public boolean cardNine() {
+        boolean clicked = cardSet.cards[11];
+        if (!clicked) {
+            cardSet.cards[9] = true;
         } else {
-            cardSet.cards[11] = false;
+            cardSet.cards[9] = false;
         }
+        return clicked;
     }
 
-    public void cardTen() {
-        if(!cardSet.cards[12]) {
-            cardSet.cards[12] = true;
+    public boolean cardTen() {
+        boolean clicked = cardSet.cards[12];
+        if (!clicked) {
+            cardSet.cards[10] = true;
         } else {
-            cardSet.cards[12] = false;
+            cardSet.cards[10] = false;
         }
+        return clicked;
     }
 
 

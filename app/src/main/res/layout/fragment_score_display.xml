@@ -5,5 +5,4 @@
     tools:context=".fragments.ScoreDisplayActivityFragment"
     tools:showIn="@layout/activity_score_display" >
 
-
 </RelativeLayout>
