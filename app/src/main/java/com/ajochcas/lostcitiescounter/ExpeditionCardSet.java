@@ -15,11 +15,6 @@ public class ExpeditionCardSet {
      */
     public static final int EXPEDITION_COST = 20;
 
-    /**
-     * How much each multiplier card multiples the end
-     * value of the expedition by.
-     */
-    public static final int MULTIPLIER_MODIFIER = 2;
 
     /**
      * The total amount of cards there are per
@@ -32,6 +27,20 @@ public class ExpeditionCardSet {
      * in the total card count
      */
     public static final int MULTIPLIER_COUNT = 3;
+
+    /**
+     * The amount of bonus points you get if you
+     * meet of exceed the require bonus card count
+     * requirements.
+     */
+    public static final int BONUS_POINTS = 20;
+
+
+    /**
+     * The amount of cards you must have in a single
+     * expedition to get the bonus points.
+     */
+    public static final int BONUS_CARD_REQUIREMENT = 8;
 
     /**
      * 0-2 are $ sign cards
@@ -53,16 +62,18 @@ public class ExpeditionCardSet {
      */
     public ExpeditionCardSet(int representiveInt) {
         this();
-        for (int i = this.cards.length; i >= 0; i--) {
-            if (representiveInt > i) {
-                representiveInt -= (i + 1);
+        for (int i = this.cards.length - 1; i >= 0; i--) {
+            int currentInt = (int) Math.pow(2, i);
+            if (representiveInt >= currentInt) {
+                representiveInt -= currentInt;
                 this.cards[i] = true;
             }
         }
     }
 
     /**
-     * Casts the current hand of cards represented in this class
+     * Casts the current hand of cards repres
+     * ented in this class
      * to be casted into an integer for storage purposes. Based off
      * power of two
      *
@@ -73,7 +84,7 @@ public class ExpeditionCardSet {
         int currentRep = 0;
         for (int i = 0; i < this.cards.length; i++) {
             if (this.cards[i]) {
-                currentRep += (int) Math.pow(i + 1, 2);
+                currentRep += (int) Math.pow(2, i);
             }
         }
         return currentRep;
@@ -92,11 +103,13 @@ public class ExpeditionCardSet {
             //needed
             return 0;
         } else {
-            int multiplierCount = 0;
+            int cardCount = 0;
+            int multiplierCount = 1;
             int expeditionValue = 0;
             expeditionValue -= EXPEDITION_COST;
             for (int i = 0; i < this.cards.length; i++) {
                 if (this.cards[i]) {
+                    cardCount +=1;
                     if (i < MULTIPLIER_COUNT) {
                         multiplierCount++;
                     } else {
@@ -104,8 +117,10 @@ public class ExpeditionCardSet {
                     }
                 }
             }
-            if (multiplierCount > 0) {
-                expeditionValue *= multiplierCount * MULTIPLIER_MODIFIER;
+            expeditionValue *= multiplierCount;
+            if(cardCount >= BONUS_CARD_REQUIREMENT)
+            {
+                expeditionValue += BONUS_POINTS;
             }
             return expeditionValue;
         }
