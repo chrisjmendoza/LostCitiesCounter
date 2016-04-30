@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -23,9 +25,11 @@ public class Landing extends AppCompatActivity {
 
         Scanner in;
 
-        //in = new Scanner(this.getResources().openRawResource(R.raw.score));
+        in = new Scanner(this.getResources().openRawResource(R.raw.scores));
+        //InputStream is = this.getResources().openRawResource(R.raw.scores);
+        //in.useDelimiter(",");
 
-        ArrayList<Integer> scores = new ArrayList<>();
+        String scores[] = new String[10];
 
         int index = 0;
 
@@ -33,10 +37,10 @@ public class Landing extends AppCompatActivity {
         //TextView vw = (TextView) findViewById(R.id.score2);
 
         //vw.setText("Test2");
-        /*while (in.hasNext()) {
-            scores[index] = in.nextInt();
+        while (in.hasNext()) {
+            scores[index] = in.next();
             index++;
-        }*/
+        }
 
         TextView[] view = {
                 (TextView) findViewById(R.id.scoretext1),
@@ -52,8 +56,8 @@ public class Landing extends AppCompatActivity {
         };
 
         for(int i = 0; i < 10; i++) {
-            String score = view[i].toString();
-            scores.add(i, Integer.getInteger(score));
+            view[i].setText(scores[i]);
+            //scores.add(i, Integer.getInteger(score));
         }
 
         Button next = (Button) findViewById(R.id.nextFirst);
