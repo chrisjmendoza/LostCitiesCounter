@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Landing extends AppCompatActivity {
@@ -24,7 +25,8 @@ public class Landing extends AppCompatActivity {
 
         //in = new Scanner(this.getResources().openRawResource(R.raw.score));
 
-        int scores[] = new int[]{-300, -301, -301, -301, -301, -301, -301, -301, -301, -301};
+        ArrayList<Integer> scores = new ArrayList<>();
+
         int index = 0;
 
 
@@ -36,21 +38,22 @@ public class Landing extends AppCompatActivity {
             index++;
         }*/
 
-        TextView[] view = {(TextView) findViewById(R.id.score1),
-                (TextView) findViewById(R.id.score2),
-                (TextView) findViewById(R.id.score3),
-                (TextView) findViewById(R.id.score4),
-                (TextView) findViewById(R.id.score5),
-                (TextView) findViewById(R.id.score6),
-                (TextView) findViewById(R.id.score7),
-                (TextView) findViewById(R.id.score8),
-                (TextView) findViewById(R.id.score9),
-                (TextView) findViewById(R.id.score10)};
+        TextView[] view = {
+                (TextView) findViewById(R.id.scoretext1),
+                (TextView) findViewById(R.id.scoretext2),
+                (TextView) findViewById(R.id.scoretext3),
+                (TextView) findViewById(R.id.scoretext4),
+                (TextView) findViewById(R.id.scoretext5),
+                (TextView) findViewById(R.id.scoretext6),
+                (TextView) findViewById(R.id.scoretext7),
+                (TextView) findViewById(R.id.scoretext8),
+                (TextView) findViewById(R.id.scoretext9),
+                (TextView) findViewById(R.id.scoretext10)
+        };
 
-        for (int i = 0; i < 10; i++) {
-            //if (scores[i] > -301) {
-                view[i].setText("" + (scores[i]));
-            //}
+        for(int i = 0; i < 10; i++) {
+            String score = view[i].toString();
+            scores.add(i, Integer.getInteger(score));
         }
 
         Button next = (Button) findViewById(R.id.nextFirst);

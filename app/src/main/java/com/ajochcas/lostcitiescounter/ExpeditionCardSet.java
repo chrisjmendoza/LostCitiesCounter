@@ -63,11 +63,11 @@ public class ExpeditionCardSet {
 
     /**
      * Casts the current hand of cards represented in this class
-     * to be casted into an integer for storage proposes. Based off
-     * Power of two
+     * to be casted into an integer for storage purposes. Based off
+     * power of two
      *
      * @return the integer representation of the current expedition so
-     * it can be stored.
+     * it can be stored in a readable file
      */
     public int castToInt() {
         int currentRep = 0;

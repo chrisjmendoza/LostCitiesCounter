@@ -36,8 +36,7 @@
         android:nestedScrollingEnabled="false"
         android:layout_alignRight="@+id/button1"
         android:layout_alignEnd="@+id/button1"
-        android:hapticFeedbackEnabled="true"
-        android:onClick="cardSelect"/>
+        android:hapticFeedbackEnabled="true"/>
 
     <Button
         android:layout_width="wrap_content"
