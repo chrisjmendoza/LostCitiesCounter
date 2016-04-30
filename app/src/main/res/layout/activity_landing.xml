@@ -10,143 +10,153 @@
     tools:context=".Landing">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lost Cities Scorer"
-        android:textSize="40dp"
         android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="Lost Cities Scorer"
+        android:textSize="40sp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your Top Scores:"
-        android:textSize="30dp"
         android:id="@+id/topScores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="62dp" />
+        android:layout_marginTop="62dp"
+        android:text="Your Top Scores:"
+        android:textSize="30sp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
         android:id="@+id/scoretext1"
-        android:text="@string/score1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/topScores"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="37dp"
-        android:layout_marginLeft="50dp" />
+        android:text="@string/score1"
+        android:textSize="20sp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
         android:id="@+id/scoretext2"
-        android:text="@string/score2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/scoretext1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/score2"
+        android:textSize="20sp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
         android:id="@+id/scoretext3"
-        android:text="@string/score3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/scoretext2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/score3"
+        android:textSize="20sp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
         android:id="@+id/scoretext4"
-        android:text="@string/score4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/score4"
+        android:textSize="20sp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
         android:id="@+id/scoretext5"
-        android:text="@string/score5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/scoretext4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/score5"
+        android:textSize="20sp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
         android:id="@+id/scoretext6"
-        android:text="@string/score6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/scoretext5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/score6"
+        android:textSize="20sp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
         android:id="@+id/scoretext7"
-        android:text="@string/score7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/scoretext6"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/score7"
+        android:textSize="20sp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
         android:id="@+id/scoretext8"
-        android:text="@string/score8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/scoretext7"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/score8"
+        android:textSize="20sp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
         android:id="@+id/scoretext9"
-        android:text="@string/score9"
-        android:layout_below="@+id/scoretext8"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:id="@+id/scoretext10"
-        android:text="@string/score10"
-        android:layout_below="@+id/scoretext9"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp" />
+        android:layout_below="@+id/scoretext8"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/score9"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/scoretext10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/scoretext9"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/score10"
+        android:textSize="20sp" />
 
     <Button
+        android:id="@+id/nextFirst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="next"
-        android:id="@+id/nextFirst"
-        android:textSize="30dp"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:text="next"
+        android:textSize="30sp" />
 </RelativeLayout>

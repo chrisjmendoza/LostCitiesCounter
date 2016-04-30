@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Select Your Cards!"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/x1"
@@ -33,7 +33,6 @@
         android:layout_marginTop="33dp"
         android:background="@drawable/bg_button"
         android:hapticFeedbackEnabled="true"
-        android:nestedScrollingEnabled="false"
         android:soundEffectsEnabled="true"
         android:text="$"
         android:textColor="@color/white" />

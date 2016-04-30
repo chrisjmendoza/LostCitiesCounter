@@ -18,10 +18,10 @@ public class CardSelector extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     public final static String SCORE_OUTPUT = "com.ajochcas.lostcitiescounter.MESSAGE";
-    MediaPlayer volcano;
-    boolean allowMusic;
-    boolean isPlaying = true;
-    ExpeditionCardSet cardSet = new ExpeditionCardSet();
+    private MediaPlayer volcano;
+    private boolean allowMusic;
+    private boolean isPlaying = true;
+    private ExpeditionCardSet cardSet = new ExpeditionCardSet();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -235,133 +235,81 @@ public class CardSelector extends AppCompatActivity
         volcano.start();
     }
 
-    public boolean cardx1() {
+    private boolean cardx1() {
         boolean clicked = cardSet.cards[0];
-        if (!clicked) {
-            cardSet.cards[0] = true;
-        } else {
-            cardSet.cards[0] = false;
-        }
+        cardSet.cards[0] = !clicked;
         return clicked;
     }
 
-    public boolean cardx2() {
+    private boolean cardx2() {
         boolean clicked = cardSet.cards[1];
-        if (!clicked) {
-            cardSet.cards[1] = true;
-        } else {
-            cardSet.cards[1] = false;
-        }
+        cardSet.cards[1] = !clicked;
         return clicked;
     }
 
-    public boolean cardx3() {
+    private boolean cardx3() {
         boolean clicked = cardSet.cards[2];
-        if (!clicked) {
-            cardSet.cards[2] = true;
-        } else {
-            cardSet.cards[2] = false;
-        }
+        cardSet.cards[2] = !clicked;
         return clicked;
     }
 
-    public boolean cardOne() {
+    private boolean cardOne() {
         boolean clicked = cardSet.cards[3];
-        if (!clicked) {
-            cardSet.cards[3] = true;
-        } else {
-            cardSet.cards[3] = false;
-        }
+        cardSet.cards[3] = !clicked;
         return clicked;
     }
 
-    public boolean cardTwo() {
+    private boolean cardTwo() {
         boolean clicked = cardSet.cards[4];
-        if (!clicked) {
-            cardSet.cards[4] = true;
-        } else {
-            cardSet.cards[4] = false;
-        }
+        cardSet.cards[4] = !clicked;
         return clicked;
     }
 
-    public boolean cardThree() {
+    private boolean cardThree() {
         boolean clicked = cardSet.cards[5];
-        if (!clicked) {
-            cardSet.cards[5] = true;
-        } else {
-            cardSet.cards[5] = false;
-        }
+        cardSet.cards[5] = !clicked;
         return clicked;
     }
 
-    public boolean cardFour() {
+    private boolean cardFour() {
         boolean clicked = cardSet.cards[6];
-        if (!clicked) {
-            cardSet.cards[6] = true;
-        } else {
-            cardSet.cards[6] = false;
-        }
+        cardSet.cards[6] = !clicked;
         return clicked;
     }
 
-    public boolean cardFive() {
+    private boolean cardFive() {
         boolean clicked = cardSet.cards[7];
-        if (!clicked) {
-            cardSet.cards[7] = true;
-        } else {
-            cardSet.cards[7] = false;
-        }
+        cardSet.cards[7] = !clicked;
         return clicked;
     }
 
-    public boolean cardSix() {
+    private boolean cardSix() {
         boolean clicked = cardSet.cards[8];
-        if (!clicked) {
-            cardSet.cards[8] = true;
-        } else {
-            cardSet.cards[8] = false;
-        }
+        cardSet.cards[8] = !clicked;
         return clicked;
     }
 
-    public boolean cardSeven() {
+    private boolean cardSeven() {
         boolean clicked = cardSet.cards[9];
-        if (!clicked) {
-            cardSet.cards[9] = true;
-        } else {
-            cardSet.cards[9] = false;
-        }
+        cardSet.cards[9] = !clicked;
         return clicked;
     }
 
-    public boolean cardEight() {
+    private boolean cardEight() {
         boolean clicked = cardSet.cards[10];
-        if (!clicked) {
-            cardSet.cards[10] = true;
-        } else {
-            cardSet.cards[10] = false;
-        }
+        cardSet.cards[10] = !clicked;
         return clicked;
     }
 
-    public boolean cardNine() {
+    private boolean cardNine() {
         boolean clicked = cardSet.cards[11];
-        if (!clicked) {
-            cardSet.cards[9] = true;
-        } else {
-            cardSet.cards[9] = false;
-        }
+        cardSet.cards[9] = !clicked;
         return clicked;
     }
 
-    public boolean cardTen() {
+    private boolean cardTen() {
         boolean clicked = cardSet.cards[12];
-        if (!clicked) {
-            cardSet.cards[10] = true;
-        } else {
-            cardSet.cards[10] = false;
-        }
+        cardSet.cards[10] = !clicked;
         return clicked;
     }
 

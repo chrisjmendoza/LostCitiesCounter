@@ -5,7 +5,7 @@ package com.ajochcas.lostcitiescounter;
  * back and forth from an integer bitwise based representation
  * and the calculation of the expedition's value.
  */
-public class ExpeditionCardSet {
+class ExpeditionCardSet {
 
     /**
      * The base cost of going on an expedition.
@@ -13,34 +13,34 @@ public class ExpeditionCardSet {
      * put into the expedition, this will
      * act as your starting negative score.
      */
-    public static final int EXPEDITION_COST = 20;
+    private static final int EXPEDITION_COST = 20;
 
 
     /**
      * The total amount of cards there are per
      * Expedition.
      */
-    public static final int CARD_COUNT = 13;
+    private static final int CARD_COUNT = 13;
 
     /**
      * The amount of Multiplier Cards there are
      * in the total card count
      */
-    public static final int MULTIPLIER_COUNT = 3;
+    private static final int MULTIPLIER_COUNT = 3;
 
     /**
      * The amount of bonus points you get if you
      * meet of exceed the require bonus card count
      * requirements.
      */
-    public static final int BONUS_POINTS = 20;
+    private static final int BONUS_POINTS = 20;
 
 
     /**
      * The amount of cards you must have in a single
      * expedition to get the bonus points.
      */
-    public static final int BONUS_CARD_REQUIREMENT = 8;
+    private static final int BONUS_CARD_REQUIREMENT = 8;
 
     /**
      * 0-2 are $ sign cards
