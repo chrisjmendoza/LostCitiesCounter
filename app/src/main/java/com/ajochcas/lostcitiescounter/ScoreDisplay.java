@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ScoreDisplay extends AppCompatActivity {
+    
+    int thisScore;
+    int[] scores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,47 @@ public class ScoreDisplay extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ScoreDisplay.this, Landing.class));
+            }
+        });
+        
+        //save to file under here
+
+        thisScore = Integer.parseInt(message);
+
+        Button save = (Button) findViewById(R.id.save);
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Scanner in = null;
+
+                File file = new File("res/raw/score.txt");
+
+                try {
+                    in = new Scanner(file);
+                } catch (FileNotFoundException e) {}
+
+                int scores[] = new int[]{-401, -401, -401, -401, -401, -401, -401, -401, -401, -401};
+                int index = 0;
+
+                while (in.hasNext()) {
+                    scores[index] = in.nextInt();
+                    index++;
+                }
+
+                file.delete();
+
+                File overwrite = new File("res/raw/score.txt");
+
+                try {
+                    FileWriter write = new FileWriter(overwrite);
+                    write.write("" + thisScore);
+
+                    for(int i = 0; i < 9; i++) {
+                        write.write(" " + scores[i]);
+                    }
+                } catch (IOException e) {}
             }
         });
     }
