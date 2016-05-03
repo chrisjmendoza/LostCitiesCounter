@@ -547,6 +547,7 @@ public class CardSelector extends AppCompatActivity
 
     /**
      * Changes the background of the app depending on what Expedition the player is calculating
+     *
      * @param activeExpedition determines what expedition the player is on based on the passed array
      */
     private void checkActiveExpedition(boolean[] activeExpedition) {
@@ -727,11 +728,13 @@ public class CardSelector extends AppCompatActivity
 //        } else if (id == R.id.scoreScreen) {
 //
 //        }
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
     /**
      * Required for MediaPlayer Lifecycle, pause the music on app focus loss
@@ -745,5 +748,6 @@ public class CardSelector extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
+
     }
 }

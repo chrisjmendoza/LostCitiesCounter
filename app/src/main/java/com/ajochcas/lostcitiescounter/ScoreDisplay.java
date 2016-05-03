@@ -14,9 +14,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ScoreDisplay extends AppCompatActivity {
-    
-    int thisScore;
-    int[] scores;
+
+    private int thisScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,24 +24,29 @@ public class ScoreDisplay extends AppCompatActivity {
 
         Intent intent = getIntent();
         String message = intent.getStringExtra(CardSelector.SCORE_OUTPUT);
+
         TextView textView = (TextView) findViewById(R.id.scoreView);
+
+        assert textView != null;
         textView.setTextSize(40);
         textView.setText(message);
 
         Button homeButton = (Button) findViewById(R.id.homeButton);
+        assert homeButton != null;
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ScoreDisplay.this, Landing.class));
             }
         });
-        
+
         //save to file under here
 
         thisScore = Integer.parseInt(message);
 
         Button save = (Button) findViewById(R.id.save);
 
+        assert save != null;
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,15 +58,20 @@ public class ScoreDisplay extends AppCompatActivity {
 
                 try {
                     in = new Scanner(file);
-                } catch (FileNotFoundException e) {}
+                } catch (FileNotFoundException ignored) {
 
-                int scores[] = new int[]{-401, -401, -401, -401, -401, -401, -401, -401, -401, -401};
+                }
+
+                int scores[] = new int[10];
                 int index = 0;
 
+
+                assert in != null;
                 while (in.hasNext()) {
                     scores[index] = in.nextInt();
                     index++;
                 }
+
 
                 file.delete();
 
@@ -72,10 +81,12 @@ public class ScoreDisplay extends AppCompatActivity {
                     FileWriter write = new FileWriter(overwrite);
                     write.write("" + thisScore);
 
-                    for(int i = 0; i < 9; i++) {
+                    for (int i = 0; i < 9; i++) {
                         write.write(" " + scores[i]);
                     }
-                } catch (IOException e) {}
+                } catch (IOException ignored) {
+
+                }
             }
         });
     }

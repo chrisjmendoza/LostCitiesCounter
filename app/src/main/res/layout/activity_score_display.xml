@@ -32,4 +32,14 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Home" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/homeButton"
+        android:layout_centerHorizontal="true"
+        android:text="Save" />
+
+
 </RelativeLayout>
