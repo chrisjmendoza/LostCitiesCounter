@@ -7,6 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class ScoreDisplay extends AppCompatActivity {
     
     int thisScore;
@@ -44,6 +50,7 @@ public class ScoreDisplay extends AppCompatActivity {
                 Scanner in = null;
 
                 File file = new File("res/raw/score.txt");
+
 
                 try {
                     in = new Scanner(file);

@@ -475,10 +475,10 @@ public class CardSelector extends AppCompatActivity
             expeditionTitle = "Himalayan Mountains";
         } else if (selected == 3) {
             expedition = forestInt;
-            expeditionTitle = "Hidden Rainforest";
+            expeditionTitle = "Hidden Rain forest";
         } else if (selected == 4) {
             expedition = volcanoInt;
-            expeditionTitle = "Ancient Volcanos";
+            expeditionTitle = "Ancient Volcanoes";
         }
 
         // If the current Expedition is the desert, save values and switch to selected land
@@ -555,7 +555,7 @@ public class CardSelector extends AppCompatActivity
             activeExpedition[0] = true;
         }
         if (activeExpedition[0]) {
-            activity.findViewById(android.R.id.content).setBackgroundColor(0xFF1234);
+            activity.findViewById(android.R.id.content).setBackgroundColor(0x12345);
         } else if (activeExpedition[1]) {
             activity.findViewById(android.R.id.content).setBackgroundColor(0xFF2345);
         } else if (activeExpedition[2]) {
@@ -724,9 +724,9 @@ public class CardSelector extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.scoreScreen) {
-
-        }
+//        } else if (id == R.id.scoreScreen) {
+//
+//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

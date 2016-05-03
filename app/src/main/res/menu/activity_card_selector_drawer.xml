@@ -24,10 +24,10 @@
             android:id="@+id/volcano"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/volcano" />
-        <item
-            android:id="@+id/scoreScreen"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/finalizeScore" />
+        <!--<item-->
+            <!--android:id="@+id/scoreScreen"-->
+            <!--android:icon="@drawable/ic_menu_slideshow"-->
+            <!--android:title="@string/finalizeScore" />-->
     </group>
 
     <item android:title="Communicate">
