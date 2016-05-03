@@ -20,11 +20,15 @@ public class CardSelector extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     public final static String SCORE_OUTPUT = "com.ajochcas.lostcitiescounter.MESSAGE";
+
     Activity activity;
+
     Button[] buttonArray = new Button[13];
+
     private MediaPlayer volcano;
     private boolean allowMusic;
     private boolean isPlaying = true;
+
     // Define the 5 card sets
     private ExpeditionCardSet cardSet = new ExpeditionCardSet();
 
@@ -45,6 +49,8 @@ public class CardSelector extends AppCompatActivity
     private int currentScore = 0;
     private int totalScore = 0;
 
+    // This boolean determines which expedition is the "Active" expedition. Only one of these
+    // should be true at any given time after initialization.
     private boolean[] activeExpedition = new boolean[5];
 
     @Override
@@ -62,6 +68,7 @@ public class CardSelector extends AppCompatActivity
 
         activity = this;
 
+        // Initialize the Button Array
         buttonArray[0] = (Button) findViewById(R.id.x1);
         buttonArray[1] = (Button) findViewById(R.id.x2);
         buttonArray[2] = (Button) findViewById(R.id.x3);
@@ -99,6 +106,7 @@ public class CardSelector extends AppCompatActivity
             }
         });
 
+        // THIS BUTTON CRASHES. IT'S TIED TO THE DRAWER CALCULATE BUTTON SELECTION
 //        // The Calculate Total Button in the drawer menu
 //        Button calculateTotal = (Button) findViewById(R.id.scoreScreen);
 //        calculateTotal.setOnClickListener(new View.OnClickListener() {
@@ -440,14 +448,14 @@ public class CardSelector extends AppCompatActivity
             activeExpedition[0] = true;
             text.setText(R.string.desert);
         }
-
         checkActiveExpedition(activeExpedition);
     }
 
     /**
      * Changes the expedition based on the user's selection. Can be set up to be the only method
      *
-     * @param selected
+     * @param selected The selected expedition 0 - Desert, 1 - Water, 2 - Himalayans, 3 - Rainforest,
+     *                 4 - Volcano
      */
     private void changeExpedition(int selected) {
 
@@ -547,15 +555,15 @@ public class CardSelector extends AppCompatActivity
             activeExpedition[0] = true;
         }
         if (activeExpedition[0]) {
-            activity.findViewById(android.R.id.content).setBackgroundColor(123456);
+            activity.findViewById(android.R.id.content).setBackgroundColor(0xFF1234);
         } else if (activeExpedition[1]) {
-            activity.findViewById(android.R.id.content).setBackgroundColor(234561);
+            activity.findViewById(android.R.id.content).setBackgroundColor(0xFF2345);
         } else if (activeExpedition[2]) {
-            activity.findViewById(android.R.id.content).setBackgroundColor(345612);
+            activity.findViewById(android.R.id.content).setBackgroundColor(0xFF3456);
         } else if (activeExpedition[3]) {
-            activity.findViewById(android.R.id.content).setBackgroundColor(456123);
+            activity.findViewById(android.R.id.content).setBackgroundColor(0xFF4561);
         } else if (activeExpedition[4]) {
-            activity.findViewById(android.R.id.content).setBackgroundColor(561234);
+            activity.findViewById(android.R.id.content).setBackgroundColor(0xFF5612);
         }
 
         for (int i = 0; i < buttonArray.length; i++) {
