@@ -94,7 +94,7 @@ public class CardSelector extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 // Change this card's boolean value
-                cardx1();
+                cardSet.cards[0] = !cardSet.cards[0];
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
@@ -108,7 +108,7 @@ public class CardSelector extends AppCompatActivity
         buttonArray[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardx2();
+                cardSet.cards[1] = !cardSet.cards[1];
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
@@ -122,7 +122,7 @@ public class CardSelector extends AppCompatActivity
         buttonArray[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardx3();
+                cardSet.cards[2] = !cardSet.cards[2];
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
@@ -136,7 +136,7 @@ public class CardSelector extends AppCompatActivity
         buttonArray[3].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardTwo();
+                cardSet.cards[3] = !cardSet.cards[3];
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
@@ -150,7 +150,7 @@ public class CardSelector extends AppCompatActivity
         buttonArray[4].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardThree();
+                cardSet.cards[4] = !cardSet.cards[4];
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
@@ -164,7 +164,7 @@ public class CardSelector extends AppCompatActivity
         buttonArray[5].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardFour();
+                cardSet.cards[5] = !cardSet.cards[5];
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
@@ -178,7 +178,7 @@ public class CardSelector extends AppCompatActivity
         buttonArray[6].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardFive();
+                cardSet.cards[6] = !cardSet.cards[6];
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
@@ -192,7 +192,7 @@ public class CardSelector extends AppCompatActivity
         buttonArray[7].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardSix();
+                cardSet.cards[7] = !cardSet.cards[7];
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
@@ -206,7 +206,7 @@ public class CardSelector extends AppCompatActivity
         buttonArray[8].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardSeven();
+                cardSet.cards[8] = !cardSet.cards[8];
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
@@ -220,7 +220,7 @@ public class CardSelector extends AppCompatActivity
         buttonArray[9].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardEight();
+                cardSet.cards[9] = !cardSet.cards[9];
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
@@ -234,7 +234,7 @@ public class CardSelector extends AppCompatActivity
         buttonArray[10].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardNine();
+                cardSet.cards[10] = !cardSet.cards[10];
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
@@ -248,7 +248,7 @@ public class CardSelector extends AppCompatActivity
         buttonArray[11].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardTen();
+                cardSet.cards[11] = !cardSet.cards[11];
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
@@ -292,9 +292,9 @@ public class CardSelector extends AppCompatActivity
         });
 
         // Set the volcano sound, this will have to be modified with other expedition sounds later
-        volcano = MediaPlayer.create(CardSelector.this, R.raw.volcano);
-        volcano.setLooping(true);
-        volcano.start();
+//        volcano = MediaPlayer.create(CardSelector.this, R.raw.volcano);
+//        volcano.setLooping(true);
+//        volcano.start();
     }
 
     /**
@@ -522,55 +522,6 @@ public class CardSelector extends AppCompatActivity
         buttonClicks();
     }
 
-    private void cardx1() {
-        cardSet.cards[0] = !cardSet.cards[0];
-    }
-
-    private void cardx2() {
-        cardSet.cards[1] = !cardSet.cards[1];
-    }
-
-    private void cardx3() {
-        cardSet.cards[2] = !cardSet.cards[2];
-    }
-
-    private void cardTwo() {
-        cardSet.cards[3] = !cardSet.cards[3];
-    }
-
-    private void cardThree() {
-        cardSet.cards[4] = !cardSet.cards[4];
-    }
-
-    private void cardFour() {
-        cardSet.cards[5] = !cardSet.cards[5];
-    }
-
-    private void cardFive() {
-        cardSet.cards[6] = !cardSet.cards[6];
-    }
-
-    private void cardSix() {
-        cardSet.cards[7] = !cardSet.cards[7];
-    }
-
-    private void cardSeven() {
-        cardSet.cards[8] = !cardSet.cards[8];
-    }
-
-    private void cardEight() {
-        cardSet.cards[9] = !cardSet.cards[9];
-    }
-
-    private void cardNine() {
-        cardSet.cards[10] = !cardSet.cards[10];
-    }
-
-    private void cardTen() {
-        cardSet.cards[11] = !cardSet.cards[11];
-    }
-
-
     /**
      * Pauses or resumes the music, or doesn't play at all if the preference is turned off
      */
@@ -660,8 +611,8 @@ public class CardSelector extends AppCompatActivity
     @Override
     protected void onPause() {
         super.onPause();
-        volcano.release();
-        finish();
+//        volcano.release();
+//        finish();
     }
 
     @Override
