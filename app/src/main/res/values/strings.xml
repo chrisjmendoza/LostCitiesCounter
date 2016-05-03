@@ -19,5 +19,6 @@
     <string name="feedbackEmail">chris@cjinseattle.com</string>
     <string name="companyName">Ajochcas Inc. LLC</string>
     <string name="finalizeScore">Calculate Your Score</string>
+    <string name="selectCards">Select Your Cards</string>
 
 </resources>

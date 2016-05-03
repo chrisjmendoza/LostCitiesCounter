@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class CardSelector extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -26,6 +27,7 @@ public class CardSelector extends AppCompatActivity
     private boolean isPlaying = true;
     // Define the 5 card sets
     private ExpeditionCardSet cardSet = new ExpeditionCardSet();
+
     // Integer value of the selected Expedition Cards
     private int volcanoInt = 0;
     private int forestInt = 0;
@@ -33,6 +35,7 @@ public class CardSelector extends AppCompatActivity
     private int waterInt = 0;
     private int desertInt = 0;
     private int currentInt = 0;
+
     // Integer values of the current scores
     private int desertScore = 0;
     private int waterScore = 0;
@@ -41,6 +44,7 @@ public class CardSelector extends AppCompatActivity
     private int volcanoScore = 0;
     private int currentScore = 0;
     private int totalScore = 0;
+
     private boolean[] activeExpedition = new boolean[5];
 
     @Override
@@ -91,13 +95,23 @@ public class CardSelector extends AppCompatActivity
                     startActivity(intent);
                 } else {
                     changeExpedition();
-                    for (Button b : buttonArray) {
-
-                    }
                 }
             }
         });
 
+//        // The Calculate Total Button in the drawer menu
+//        Button calculateTotal = (Button) findViewById(R.id.scoreScreen);
+//        calculateTotal.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                changeExpedition();
+//                Intent intent = new Intent(CardSelector.this, ScoreDisplay.class);
+//                totalScore();
+//                String scoreOutput = Integer.toString(totalScore);
+//                intent.putExtra(SCORE_OUTPUT, scoreOutput);
+//                startActivity(intent);
+//            }
+//        });
 
         buttonArray[0].setOnClickListener(new View.OnClickListener() {
             @Override
@@ -356,9 +370,13 @@ public class CardSelector extends AppCompatActivity
 
     /**
      * The default changeExpedition method will change the Expeditions in order: Desert to Water,
-     * Water to Snow, Snow to Forest, Forest to Volcano, and Volcano to Desert
+     * Water to Snow, Snow to Forest, Forest to Volcano, and Volcano to Desert. REWRITE THIS
+     * IMPLEMENTATION TO REMOVE THE PARAMETER-LESS VERSION AND JUST KEEP IT DOWN TO ONE METHOD
      */
     private void changeExpedition() {
+
+        TextView text = (TextView) findViewById(R.id.selectcardtext);
+
         // Desert to Water
         if (activeExpedition[0]) {
             // Save the current boolean array values in an int
@@ -375,6 +393,8 @@ public class CardSelector extends AppCompatActivity
             activeExpedition[0] = false;
             // Make the Water Expedition Active
             activeExpedition[1] = true;
+            // Change the name of the Expedition on Screen
+            text.setText(R.string.neptune);
 
             // Water to Snow
         } else if (activeExpedition[1]) {
@@ -385,6 +405,7 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             activeExpedition[1] = false;
             activeExpedition[2] = true;
+            text.setText(R.string.himalayas);
 
             // Snow to Forest
         } else if (activeExpedition[2]) {
@@ -395,6 +416,7 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             activeExpedition[2] = false;
             activeExpedition[3] = true;
+            text.setText(R.string.rainforest);
 
             // Forest to Volcano
         } else if (activeExpedition[3]) {
@@ -405,6 +427,7 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             activeExpedition[3] = false;
             activeExpedition[4] = true;
+            text.setText(R.string.volcano);
 
             // Volcano to Desert
         } else if (activeExpedition[4]) {
@@ -415,25 +438,39 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             activeExpedition[4] = false;
             activeExpedition[0] = true;
+            text.setText(R.string.desert);
         }
 
         checkActiveExpedition(activeExpedition);
     }
 
+    /**
+     * Changes the expedition based on the user's selection. Can be set up to be the only method
+     *
+     * @param selected
+     */
     private void changeExpedition(int selected) {
 
+        TextView text = (TextView) findViewById(R.id.selectcardtext);
+
         int expedition = 0;
+        String expeditionTitle = "";
 
         if (selected == 0) {
             expedition = desertInt;
+            expeditionTitle = "Desert";
         } else if (selected == 1) {
             expedition = waterInt;
+            expeditionTitle = "Neptune's Realm";
         } else if (selected == 2) {
             expedition = snowInt;
+            expeditionTitle = "Himalayan Mountains";
         } else if (selected == 3) {
             expedition = forestInt;
+            expeditionTitle = "Rainforest";
         } else if (selected == 4) {
             expedition = volcanoInt;
+            expeditionTitle = "Volcano";
         }
 
         // If the current Expedition is the desert, save values and switch to selected land
@@ -452,6 +489,8 @@ public class CardSelector extends AppCompatActivity
             currentInt = cardSet.castToInt();
             // Make the selected expedition active
             activeExpedition[selected] = true;
+            // Change the Expedition Land title
+            text.setText(expeditionTitle);
 
         } else if (activeExpedition[1]) {
             waterInt = currentInt;
@@ -461,6 +500,8 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
+            text.setText(expeditionTitle);
+
         } else if (activeExpedition[2]) {
             snowInt = currentInt;
             snowScore = currentScore;
@@ -469,6 +510,8 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
+            text.setText(expeditionTitle);
+
         } else if (activeExpedition[3]) {
             forestInt = currentInt;
             forestScore = currentScore;
@@ -477,6 +520,8 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
+            text.setText(expeditionTitle);
+
         } else if (activeExpedition[4]) {
             volcanoInt = currentInt;
             volcanoScore = currentScore;
@@ -485,6 +530,8 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
+            text.setText(expeditionTitle);
+
         }
 
         checkActiveExpedition(activeExpedition);
@@ -492,7 +539,6 @@ public class CardSelector extends AppCompatActivity
 
     /**
      * Changes the background of the app depending on what Expedition the player is calculating
-     *
      * @param activeExpedition determines what expedition the player is on based on the passed array
      */
     private void checkActiveExpedition(boolean[] activeExpedition) {
