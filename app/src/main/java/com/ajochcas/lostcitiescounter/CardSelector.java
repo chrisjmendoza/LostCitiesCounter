@@ -23,7 +23,7 @@ public class CardSelector extends AppCompatActivity
 
     Activity activity;
 
-    Button[] buttonArray = new Button[13];
+    Button[] buttonArray = new Button[12];
 
     private MediaPlayer volcano;
     private boolean allowMusic;
@@ -63,6 +63,7 @@ public class CardSelector extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        assert drawer != null;
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -72,294 +73,221 @@ public class CardSelector extends AppCompatActivity
         buttonArray[0] = (Button) findViewById(R.id.x1);
         buttonArray[1] = (Button) findViewById(R.id.x2);
         buttonArray[2] = (Button) findViewById(R.id.x3);
-        buttonArray[3] = (Button) findViewById(R.id.button1);
-        buttonArray[4] = (Button) findViewById(R.id.button2);
-        buttonArray[5] = (Button) findViewById(R.id.button3);
-        buttonArray[6] = (Button) findViewById(R.id.button4);
-        buttonArray[7] = (Button) findViewById(R.id.button5);
-        buttonArray[8] = (Button) findViewById(R.id.button6);
-        buttonArray[9] = (Button) findViewById(R.id.button7);
-        buttonArray[10] = (Button) findViewById(R.id.button8);
-        buttonArray[11] = (Button) findViewById(R.id.button9);
-        buttonArray[12] = (Button) findViewById(R.id.button10);
+        buttonArray[3] = (Button) findViewById(R.id.button2);
+        buttonArray[4] = (Button) findViewById(R.id.button3);
+        buttonArray[5] = (Button) findViewById(R.id.button4);
+        buttonArray[6] = (Button) findViewById(R.id.button5);
+        buttonArray[7] = (Button) findViewById(R.id.button6);
+        buttonArray[8] = (Button) findViewById(R.id.button7);
+        buttonArray[9] = (Button) findViewById(R.id.button8);
+        buttonArray[10] = (Button) findViewById(R.id.button9);
+        buttonArray[11] = (Button) findViewById(R.id.button10);
 
         // Change the background based on which expedition is active
         checkActiveExpedition(activeExpedition);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
-
-        Button nextButton = (Button) findViewById(R.id.nextButton);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (activeExpedition[4]) {
-                    changeExpedition();
-                    Intent intent = new Intent(CardSelector.this, ScoreDisplay.class);
-                    totalScore();
-                    String scoreOutput = Integer.toString(totalScore);
-                    intent.putExtra(SCORE_OUTPUT, scoreOutput);
-                    startActivity(intent);
-                } else {
-                    changeExpedition();
-                }
-            }
-        });
-
-        // THIS BUTTON CRASHES. IT'S TIED TO THE DRAWER CALCULATE BUTTON SELECTION
-//        // The Calculate Total Button in the drawer menu
-//        Button calculateTotal = (Button) findViewById(R.id.scoreScreen);
-//        calculateTotal.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                changeExpedition();
-//                Intent intent = new Intent(CardSelector.this, ScoreDisplay.class);
-//                totalScore();
-//                String scoreOutput = Integer.toString(totalScore);
-//                intent.putExtra(SCORE_OUTPUT, scoreOutput);
-//                startActivity(intent);
-//            }
-//        });
 
         buttonArray[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean clicked = cardx1();
+                // Change this card's boolean value
+                cardx1();
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
                 totalScore();
                 // Update the integer value of the boolean set
                 currentInt = cardSet.castToInt();
-                if (!clicked) {
-                    buttonArray[0].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-                } else {
-                    buttonArray[0].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-                }
+                buttonClicks();
             }
         });
 
         buttonArray[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean clicked = cardx2();
+                cardx2();
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
                 totalScore();
                 // Update the integer value of the boolean set
                 currentInt = cardSet.castToInt();
-                if (!clicked) {
-                    buttonArray[1].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-                } else {
-                    buttonArray[1].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-                }
+                buttonClicks();
             }
         });
 
         buttonArray[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean clicked = cardx3();
+                cardx3();
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
                 totalScore();
                 // Update the integer value of the boolean set
                 currentInt = cardSet.castToInt();
-                if (!clicked) {
-                    buttonArray[2].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-                } else {
-                    buttonArray[2].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-                }
+                buttonClicks();
             }
         });
 
         buttonArray[3].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean clicked = cardOne();
+                cardTwo();
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
                 totalScore();
                 // Update the integer value of the boolean set
                 currentInt = cardSet.castToInt();
-                if (!clicked) {
-                    buttonArray[3].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-                } else {
-                    buttonArray[3].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-                }
+                buttonClicks();
             }
         });
 
         buttonArray[4].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean clicked = cardTwo();
+                cardThree();
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
                 totalScore();
                 // Update the integer value of the boolean set
                 currentInt = cardSet.castToInt();
-                if (!clicked) {
-                    buttonArray[4].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-                } else {
-                    buttonArray[4].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-                }
+                buttonClicks();
             }
         });
 
         buttonArray[5].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean clicked = cardThree();
+                cardFour();
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
                 totalScore();
                 // Update the integer value of the boolean set
                 currentInt = cardSet.castToInt();
-                if (!clicked) {
-                    buttonArray[5].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-                } else {
-                    buttonArray[5].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-                }
+                buttonClicks();
             }
         });
 
         buttonArray[6].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean clicked = cardFour();
+                cardFive();
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
                 totalScore();
                 // Update the integer value of the boolean set
                 currentInt = cardSet.castToInt();
-                if (!clicked) {
-                    buttonArray[6].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-                } else {
-                    buttonArray[6].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-                }
+                buttonClicks();
             }
         });
 
         buttonArray[7].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean clicked = cardFive();
+                cardSix();
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
                 totalScore();
                 // Update the integer value of the boolean set
                 currentInt = cardSet.castToInt();
-                if (!clicked) {
-                    buttonArray[7].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-                } else {
-                    buttonArray[7].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-                }
+                buttonClicks();
             }
         });
 
         buttonArray[8].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean clicked = cardSix();
+                cardSeven();
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
                 totalScore();
                 // Update the integer value of the boolean set
                 currentInt = cardSet.castToInt();
-                if (!clicked) {
-                    buttonArray[8].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-                } else {
-                    buttonArray[8].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-                }
+                buttonClicks();
             }
         });
 
         buttonArray[9].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean clicked = cardSeven();
+                cardEight();
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
                 totalScore();
                 // Update the integer value of the boolean set
                 currentInt = cardSet.castToInt();
-                if (!clicked) {
-                    buttonArray[9].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-                } else {
-                    buttonArray[9].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-                }
+                buttonClicks();
             }
         });
 
         buttonArray[10].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean clicked = cardEight();
+                cardNine();
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
                 totalScore();
                 // Update the integer value of the boolean set
                 currentInt = cardSet.castToInt();
-                if (!clicked) {
-                    buttonArray[10].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-                } else {
-                    buttonArray[10].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-                }
+                buttonClicks();
             }
         });
 
         buttonArray[11].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean clicked = cardNine();
+                cardTen();
                 // Update the score for the current set
                 currentScore = cardSet.calculateValue();
                 // Update the total score
                 totalScore();
                 // Update the integer value of the boolean set
                 currentInt = cardSet.castToInt();
-                if (!clicked) {
-                    buttonArray[11].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-                } else {
-                    buttonArray[11].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-                }
-            }
-        });
-
-        buttonArray[12].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                boolean clicked = cardTen();
-                // Update the score for the current set
-                currentScore = cardSet.calculateValue();
-                // Update the total score
-                totalScore();
-                // Update the integer value of the boolean set
-                currentInt = cardSet.castToInt();
-                if (!clicked) {
-                    buttonArray[12].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-                } else {
-                    buttonArray[12].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-                }
+                buttonClicks();
             }
         });
 
         Button homeButton = (Button) findViewById(R.id.homeButton);
+        assert homeButton != null;
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CardSelector.this, Landing.class));
+            }
+        });
+
+        Button calculateScoreButton = (Button) findViewById(R.id.calculateScore);
+        assert calculateScoreButton != null;
+        calculateScoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeExpedition();
+                Intent intent = new Intent(CardSelector.this, ScoreDisplay.class);
+                totalScore();
+                String scoreOutput = Integer.toString(totalScore);
+                intent.putExtra(SCORE_OUTPUT, scoreOutput);
+                startActivity(intent);
+            }
+        });
+
+        Button nextButton = (Button) findViewById(R.id.nextButton);
+        assert nextButton != null;
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeExpedition();
             }
         });
 
@@ -401,6 +329,7 @@ public class CardSelector extends AppCompatActivity
             activeExpedition[0] = false;
             // Make the Water Expedition Active
             activeExpedition[1] = true;
+            assert text != null;
             // Change the name of the Expedition on Screen
             text.setText(R.string.neptune);
 
@@ -413,6 +342,7 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             activeExpedition[1] = false;
             activeExpedition[2] = true;
+            assert text != null;
             text.setText(R.string.himalayas);
 
             // Snow to Forest
@@ -424,6 +354,7 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             activeExpedition[2] = false;
             activeExpedition[3] = true;
+            assert text != null;
             text.setText(R.string.rainforest);
 
             // Forest to Volcano
@@ -435,6 +366,7 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             activeExpedition[3] = false;
             activeExpedition[4] = true;
+            assert text != null;
             text.setText(R.string.volcano);
 
             // Volcano to Desert
@@ -446,9 +378,24 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             activeExpedition[4] = false;
             activeExpedition[0] = true;
+            assert text != null;
             text.setText(R.string.desert);
         }
         checkActiveExpedition(activeExpedition);
+    }
+
+    /**
+     * Goes through the button array and highlights any value that has been pressed, or turns it
+     * off if pressed again
+     */
+    private void buttonClicks() {
+        for (int i = 0; i < buttonArray.length; i++) {
+            if (cardSet.cards[i]) {
+                buttonArray[i].setBackgroundResource(R.drawable.bg_button_pressed);
+            } else {
+                buttonArray[i].setBackgroundResource(R.drawable.bg_button);
+            }
+        }
     }
 
     /**
@@ -497,6 +444,7 @@ public class CardSelector extends AppCompatActivity
             currentInt = cardSet.castToInt();
             // Make the selected expedition active
             activeExpedition[selected] = true;
+            assert text != null;
             // Change the Expedition Land title
             text.setText(expeditionTitle);
 
@@ -508,6 +456,7 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
+            assert text != null;
             text.setText(expeditionTitle);
 
         } else if (activeExpedition[2]) {
@@ -518,6 +467,7 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
+            assert text != null;
             text.setText(expeditionTitle);
 
         } else if (activeExpedition[3]) {
@@ -528,6 +478,7 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
+            assert text != null;
             text.setText(expeditionTitle);
 
         } else if (activeExpedition[4]) {
@@ -538,6 +489,7 @@ public class CardSelector extends AppCompatActivity
             currentScore = cardSet.calculateValue();
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
+            assert text != null;
             text.setText(expeditionTitle);
 
         }
@@ -552,7 +504,7 @@ public class CardSelector extends AppCompatActivity
      */
     private void checkActiveExpedition(boolean[] activeExpedition) {
         // If the game was just started,
-        if (activeExpedition[0] == false && activeExpedition[1] == false && activeExpedition[2] == false && activeExpedition[3] == false && activeExpedition[4] == false) {
+        if (!activeExpedition[0] && !activeExpedition[1] && !activeExpedition[2] && !activeExpedition[3] && !activeExpedition[4]) {
             activeExpedition[0] = true;
         }
         if (activeExpedition[0]) {
@@ -563,95 +515,59 @@ public class CardSelector extends AppCompatActivity
             activity.findViewById(android.R.id.content).setBackgroundColor(0xFF3456);
         } else if (activeExpedition[3]) {
             activity.findViewById(android.R.id.content).setBackgroundColor(0xFF4561);
-        } else if (activeExpedition[4]) {
+        } else {
             activity.findViewById(android.R.id.content).setBackgroundColor(0xFF5612);
         }
 
-        for (int i = 0; i < buttonArray.length; i++) {
-            if (cardSet.cards[i]) {
-                buttonArray[i].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button_pressed));
-            } else {
-                buttonArray[i].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_button));
-            }
-        }
+        buttonClicks();
     }
 
-    private boolean cardx1() {
-        boolean clicked = cardSet.cards[0];
-        cardSet.cards[0] = !clicked;
-        return clicked;
+    private void cardx1() {
+        cardSet.cards[0] = !cardSet.cards[0];
     }
 
-    private boolean cardx2() {
-        boolean clicked = cardSet.cards[1];
-        cardSet.cards[1] = !clicked;
-        return clicked;
+    private void cardx2() {
+        cardSet.cards[1] = !cardSet.cards[1];
     }
 
-    private boolean cardx3() {
-        boolean clicked = cardSet.cards[2];
-        cardSet.cards[2] = !clicked;
-        return clicked;
+    private void cardx3() {
+        cardSet.cards[2] = !cardSet.cards[2];
     }
 
-    private boolean cardOne() {
-        boolean clicked = cardSet.cards[3];
-        cardSet.cards[3] = !clicked;
-        return clicked;
+    private void cardTwo() {
+        cardSet.cards[3] = !cardSet.cards[3];
     }
 
-    private boolean cardTwo() {
-        boolean clicked = cardSet.cards[4];
-        cardSet.cards[4] = !clicked;
-        return clicked;
+    private void cardThree() {
+        cardSet.cards[4] = !cardSet.cards[4];
     }
 
-    private boolean cardThree() {
-        boolean clicked = cardSet.cards[5];
-        cardSet.cards[5] = !clicked;
-        return clicked;
+    private void cardFour() {
+        cardSet.cards[5] = !cardSet.cards[5];
     }
 
-    private boolean cardFour() {
-        boolean clicked = cardSet.cards[6];
-        cardSet.cards[6] = !clicked;
-        return clicked;
+    private void cardFive() {
+        cardSet.cards[6] = !cardSet.cards[6];
     }
 
-    private boolean cardFive() {
-        boolean clicked = cardSet.cards[7];
-        cardSet.cards[7] = !clicked;
-        return clicked;
+    private void cardSix() {
+        cardSet.cards[7] = !cardSet.cards[7];
     }
 
-    private boolean cardSix() {
-        boolean clicked = cardSet.cards[8];
-        cardSet.cards[8] = !clicked;
-        return clicked;
+    private void cardSeven() {
+        cardSet.cards[8] = !cardSet.cards[8];
     }
 
-    private boolean cardSeven() {
-        boolean clicked = cardSet.cards[9];
-        cardSet.cards[9] = !clicked;
-        return clicked;
+    private void cardEight() {
+        cardSet.cards[9] = !cardSet.cards[9];
     }
 
-    private boolean cardEight() {
-        boolean clicked = cardSet.cards[10];
-        cardSet.cards[10] = !clicked;
-        return clicked;
+    private void cardNine() {
+        cardSet.cards[10] = !cardSet.cards[10];
     }
 
-    private boolean cardNine() {
-        boolean clicked = cardSet.cards[11];
-        cardSet.cards[11] = !clicked;
-        return clicked;
-    }
-
-    private boolean cardTen() {
-        boolean clicked = cardSet.cards[12];
-        cardSet.cards[12] = !clicked;
-        return clicked;
+    private void cardTen() {
+        cardSet.cards[11] = !cardSet.cards[11];
     }
 
 
@@ -673,6 +589,7 @@ public class CardSelector extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        assert drawer != null;
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -731,6 +648,7 @@ public class CardSelector extends AppCompatActivity
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        assert drawer != null;
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
