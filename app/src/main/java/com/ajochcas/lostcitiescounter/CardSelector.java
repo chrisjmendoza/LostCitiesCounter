@@ -466,7 +466,7 @@ public class CardSelector extends AppCompatActivity
 
         if (selected == 0) {
             expedition = desertInt;
-            expeditionTitle = "Desert";
+            expeditionTitle = "Saharan Desert";
         } else if (selected == 1) {
             expedition = waterInt;
             expeditionTitle = "Neptune's Realm";
@@ -475,10 +475,10 @@ public class CardSelector extends AppCompatActivity
             expeditionTitle = "Himalayan Mountains";
         } else if (selected == 3) {
             expedition = forestInt;
-            expeditionTitle = "Rainforest";
+            expeditionTitle = "Hidden Rainforest";
         } else if (selected == 4) {
             expedition = volcanoInt;
-            expeditionTitle = "Volcano";
+            expeditionTitle = "Ancient Volcanos";
         }
 
         // If the current Expedition is the desert, save values and switch to selected land
