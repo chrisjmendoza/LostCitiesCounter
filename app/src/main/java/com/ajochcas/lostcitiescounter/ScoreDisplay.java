@@ -26,7 +26,6 @@ public class ScoreDisplay extends AppCompatActivity {
         String message = intent.getStringExtra(CardSelector.SCORE_OUTPUT);
 
         TextView textView = (TextView) findViewById(R.id.scoreView);
-
         assert textView != null;
         textView.setTextSize(40);
         textView.setText(message);
@@ -55,25 +54,20 @@ public class ScoreDisplay extends AppCompatActivity {
 
                 File file = new File("res/raw/score.txt");
 
-
                 try {
                     in = new Scanner(file);
                 } catch (FileNotFoundException ignored) {
 
                 }
 
-                int scores[] = new int[10];
+                int scores[] = new int[]{-401, -401, -401, -401, -401, -401, -401, -401, -401, -401};
                 int index = 0;
-
 
                 assert in != null;
                 while (in.hasNext()) {
                     scores[index] = in.nextInt();
                     index++;
                 }
-
-
-                file.delete();
 
                 File overwrite = new File("res/raw/score.txt");
 
@@ -84,6 +78,7 @@ public class ScoreDisplay extends AppCompatActivity {
                     for (int i = 0; i < 9; i++) {
                         write.write(" " + scores[i]);
                     }
+
                 } catch (IOException ignored) {
 
                 }
