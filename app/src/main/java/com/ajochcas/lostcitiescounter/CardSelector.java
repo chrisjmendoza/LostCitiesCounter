@@ -3,6 +3,7 @@ package com.ajochcas.lostcitiescounter;
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -84,7 +85,7 @@ public class CardSelector extends AppCompatActivity
         buttonArray[11] = (Button) findViewById(R.id.button10);
 
         // Change the background based on which expedition is active
-        checkActiveExpedition(activeExpedition);
+        ActiveExpedition(activeExpedition);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         assert navigationView != null;
@@ -101,6 +102,7 @@ public class CardSelector extends AppCompatActivity
                 totalScore();
                 // Update the integer value of the boolean set
                 currentInt = cardSet.castToInt();
+                // Change the button color
                 buttonClicks();
             }
         });
@@ -305,86 +307,6 @@ public class CardSelector extends AppCompatActivity
     }
 
     /**
-     * The default changeExpedition method will change the Expeditions in order: Desert to Water,
-     * Water to Snow, Snow to Forest, Forest to Volcano, and Volcano to Desert. REWRITE THIS
-     * IMPLEMENTATION TO REMOVE THE PARAMETER-LESS VERSION AND JUST KEEP IT DOWN TO ONE METHOD
-     */
-    private void changeExpedition() {
-
-        TextView text = (TextView) findViewById(R.id.selectcardtext);
-
-        // Desert to Water
-        if (activeExpedition[0]) {
-            // Save the current boolean array values in an int
-            desertInt = currentInt;
-            // Save the current score of the Expedition
-            desertScore = currentScore;
-            // Make the next expedition card set, based on the bitwise integer
-            cardSet = new ExpeditionCardSet(waterInt);
-            // Update the currentInt value with a bitwise integer (returning to a land)
-            currentInt = cardSet.castToInt();
-            // Update the "Current" score with the value of the next cardset
-            currentScore = cardSet.calculateValue();
-            // Set the Desert Expedition off
-            activeExpedition[0] = false;
-            // Make the Water Expedition Active
-            activeExpedition[1] = true;
-            assert text != null;
-            // Change the name of the Expedition on Screen
-            text.setText(R.string.neptune);
-
-            // Water to Snow
-        } else if (activeExpedition[1]) {
-            waterInt = currentInt;
-            waterScore = currentScore;
-            cardSet = new ExpeditionCardSet(snowInt);
-            currentInt = cardSet.castToInt();
-            currentScore = cardSet.calculateValue();
-            activeExpedition[1] = false;
-            activeExpedition[2] = true;
-            assert text != null;
-            text.setText(R.string.himalayas);
-
-            // Snow to Forest
-        } else if (activeExpedition[2]) {
-            snowInt = currentInt;
-            snowScore = currentScore;
-            cardSet = new ExpeditionCardSet(forestInt);
-            currentInt = cardSet.castToInt();
-            currentScore = cardSet.calculateValue();
-            activeExpedition[2] = false;
-            activeExpedition[3] = true;
-            assert text != null;
-            text.setText(R.string.rainforest);
-
-            // Forest to Volcano
-        } else if (activeExpedition[3]) {
-            forestInt = currentInt;
-            forestScore = currentScore;
-            cardSet = new ExpeditionCardSet(volcanoInt);
-            currentInt = cardSet.castToInt();
-            currentScore = cardSet.calculateValue();
-            activeExpedition[3] = false;
-            activeExpedition[4] = true;
-            assert text != null;
-            text.setText(R.string.volcano);
-
-            // Volcano to Desert
-        } else if (activeExpedition[4]) {
-            volcanoInt = currentInt;
-            volcanoScore = currentScore;
-            cardSet = new ExpeditionCardSet(desertInt);
-            currentInt = cardSet.castToInt();
-            currentScore = cardSet.calculateValue();
-            activeExpedition[4] = false;
-            activeExpedition[0] = true;
-            assert text != null;
-            text.setText(R.string.desert);
-        }
-        checkActiveExpedition(activeExpedition);
-    }
-
-    /**
      * Goes through the button array and highlights any value that has been pressed, or turns it
      * off if pressed again
      */
@@ -399,6 +321,34 @@ public class CardSelector extends AppCompatActivity
     }
 
     /**
+     * The default changeExpedition method will change the Expeditions in order: Desert to Water,
+     * Water to Snow, Snow to Forest, Forest to Volcano, and Volcano to Desert.
+     */
+    private void changeExpedition() {
+
+        // Desert to Water
+        if (activeExpedition[0]) {
+            changeExpedition(1);
+
+            // Water to Snow
+        } else if (activeExpedition[1]) {
+            changeExpedition(2);
+
+            // Snow to Forest
+        } else if (activeExpedition[2]) {
+            changeExpedition(3);
+
+            // Forest to Volcano
+        } else if (activeExpedition[3]) {
+            changeExpedition(4);
+
+            // Volcano to Desert
+        } else if (activeExpedition[4]) {
+            changeExpedition(0);
+        }
+    }
+
+    /**
      * Changes the expedition based on the user's selection. Can be set up to be the only method
      *
      * @param selected The selected expedition 0 - Desert, 1 - Water, 2 - Himalayans, 3 - Rainforest,
@@ -409,23 +359,18 @@ public class CardSelector extends AppCompatActivity
         TextView text = (TextView) findViewById(R.id.selectcardtext);
 
         int expedition = 0;
-        String expeditionTitle = "";
 
         if (selected == 0) {
             expedition = desertInt;
-            expeditionTitle = "Saharan Desert";
         } else if (selected == 1) {
             expedition = waterInt;
-            expeditionTitle = "Neptune's Realm";
+            assert text != null;
         } else if (selected == 2) {
             expedition = snowInt;
-            expeditionTitle = "Himalayan Mountains";
         } else if (selected == 3) {
             expedition = forestInt;
-            expeditionTitle = "Hidden Rain forest";
         } else if (selected == 4) {
             expedition = volcanoInt;
-            expeditionTitle = "Ancient Volcanoes";
         }
 
         // If the current Expedition is the desert, save values and switch to selected land
@@ -444,9 +389,8 @@ public class CardSelector extends AppCompatActivity
             currentInt = cardSet.castToInt();
             // Make the selected expedition active
             activeExpedition[selected] = true;
-            assert text != null;
-            // Change the Expedition Land title
-            text.setText(expeditionTitle);
+            // Change the name of the Expedition on Screen
+            text.setText(R.string.neptune);
 
         } else if (activeExpedition[1]) {
             waterInt = currentInt;
@@ -457,7 +401,7 @@ public class CardSelector extends AppCompatActivity
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
             assert text != null;
-            text.setText(expeditionTitle);
+            text.setText(R.string.himalayas);
 
         } else if (activeExpedition[2]) {
             snowInt = currentInt;
@@ -468,7 +412,7 @@ public class CardSelector extends AppCompatActivity
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
             assert text != null;
-            text.setText(expeditionTitle);
+            text.setText(R.string.rainforest);
 
         } else if (activeExpedition[3]) {
             forestInt = currentInt;
@@ -479,7 +423,7 @@ public class CardSelector extends AppCompatActivity
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
             assert text != null;
-            text.setText(expeditionTitle);
+            text.setText(R.string.volcano);
 
         } else if (activeExpedition[4]) {
             volcanoInt = currentInt;
@@ -490,11 +434,9 @@ public class CardSelector extends AppCompatActivity
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
             assert text != null;
-            text.setText(expeditionTitle);
-
+            text.setText(R.string.desert);
         }
-
-        checkActiveExpedition(activeExpedition);
+        ActiveExpedition(activeExpedition);
     }
 
     /**
@@ -502,21 +444,44 @@ public class CardSelector extends AppCompatActivity
      *
      * @param activeExpedition determines what expedition the player is on based on the passed array
      */
-    private void checkActiveExpedition(boolean[] activeExpedition) {
+    private void ActiveExpedition(boolean[] activeExpedition) {
+
+        android.app.ActionBar bar = getActionBar();
+
         // If the game was just started,
         if (!activeExpedition[0] && !activeExpedition[1] && !activeExpedition[2] && !activeExpedition[3] && !activeExpedition[4]) {
             activeExpedition[0] = true;
         }
         if (activeExpedition[0]) {
-            activity.findViewById(android.R.id.content).setBackgroundColor(0x12345);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                activity.findViewById(android.R.id.content).setBackground(getResources().getDrawable(R.drawable.bg_desert));
+            } else {
+                activity.findViewById(android.R.id.content).setBackgroundColor(getResources().getColor(R.color.desert));
+            }
         } else if (activeExpedition[1]) {
-            activity.findViewById(android.R.id.content).setBackgroundColor(0xFF2345);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                activity.findViewById(android.R.id.content).setBackground(getResources().getDrawable(R.drawable.bg_water));
+            } else {
+                activity.findViewById(android.R.id.content).setBackgroundColor(getResources().getColor(R.color.desert));
+            }
         } else if (activeExpedition[2]) {
-            activity.findViewById(android.R.id.content).setBackgroundColor(0xFF3456);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                activity.findViewById(android.R.id.content).setBackground(getResources().getDrawable(R.drawable.bg_snow));
+            } else {
+                activity.findViewById(android.R.id.content).setBackgroundColor(getResources().getColor(R.color.desert));
+            }
         } else if (activeExpedition[3]) {
-            activity.findViewById(android.R.id.content).setBackgroundColor(0xFF4561);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                activity.findViewById(android.R.id.content).setBackground(getResources().getDrawable(R.drawable.bg_forest));
+            } else {
+                activity.findViewById(android.R.id.content).setBackgroundColor(getResources().getColor(R.color.desert));
+            }
         } else {
-            activity.findViewById(android.R.id.content).setBackgroundColor(0xFF5612);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                activity.findViewById(android.R.id.content).setBackground(getResources().getDrawable(R.drawable.bg_volcano));
+            } else {
+                activity.findViewById(android.R.id.content).setBackgroundColor(getResources().getColor(R.color.desert));
+            }
         }
 
         buttonClicks();
