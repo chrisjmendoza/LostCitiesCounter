@@ -3,26 +3,15 @@ package com.ajochcas.lostcitiescounter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Scanner;
 
 public class ScoreDisplay extends AppCompatActivity {
     
     int thisScore;
-    int[] scores;
     Button save;
 
     @Override
@@ -37,6 +26,7 @@ public class ScoreDisplay extends AppCompatActivity {
         textView.setText(message);
 
         Button homeButton = (Button) findViewById(R.id.homeButton);
+        assert homeButton != null;
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
