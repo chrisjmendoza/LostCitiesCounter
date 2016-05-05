@@ -23,23 +23,30 @@ public class Landing extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        sharedPreferences = getSharedPreferences("scores", Context.MODE_PRIVATE);
+
+        if(!sharedPreferences.contains("scores")) {
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putString("scores", "");
+            edit.commit();
+        }
+
         Scanner in;
 
-        in = new Scanner(this.getResources().openRawResource(R.raw.scores));
+        in = new Scanner(sharedPreferences.getString("scores", null));
         //InputStream is = this.getResources().openRawResource(R.raw.scores);
         //in.useDelimiter(",");
 
         String scores[] = new String[10];
 
-        int index = 0;
-
-
         //TextView vw = (TextView) findViewById(R.id.score2);
 
         //vw.setText("Test2");
-        while (in.hasNext()) {
-            scores[index] = in.next();
-            index++;
+        for (int i = 0; i < 10; i++) {
+            if(!in.hasNext()) {
+                break;
+            }
+            scores[i] = in.next();
         }
 
         TextView[] view = {
