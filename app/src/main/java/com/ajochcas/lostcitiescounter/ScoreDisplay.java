@@ -90,59 +90,67 @@ public class ScoreDisplay extends AppCompatActivity {
 
 */
 
-package com.homework.lostcitiesscorer.lostcitiesscorer;
+package com.ajochcas.lostcitiescounter;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-/**
- * Created by Sai Chang on 4/21/2016.
- */
-public class DisplayScore extends AppCompatActivity {
-
-    private int scores[];
+public class ScoreDisplay extends AppCompatActivity {
+    
     int thisScore;
+    int[] scores;
+    Button save;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.score);
+        setContentView(R.layout.activity_score_display);
 
-        Intent i = getIntent();
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(CardSelector.SCORE_OUTPUT);
+        TextView textView = (TextView) findViewById(R.id.scoreView);
+        textView.setTextSize(40);
+        textView.setText(message);
 
-        String message = "123";
+        Button homeButton = (Button) findViewById(R.id.homeButton);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ScoreDisplay.this, Landing.class));
+            }
+        });
+        
+        //save to file under here
 
-        int number = Integer.parseInt(message);
+        thisScore = Integer.parseInt(message);
 
-        Scanner in = new Scanner(i.getStringExtra("score"));
-
-        thisScore = in.nextInt();
-
-        ((TextView) findViewById(R.id.score)).setText(i.getStringExtra("score"));
-
-
-        Button save = (Button) findViewById(R.id.save);
+        save = (Button) findViewById(R.id.save);
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Scanner in = new Scanner(getResources().openRawResource(R.raw.score));
+                save.setClickable(false);
 
-                int scores[] = new int[]{-401, -401, -401, -401, -401, -401, -401, -401, -401, -401};
+                Scanner in = new Scanner(getApplicationContext().getResources().openRawResource(R.raw.scores));
+
+                File file = getFilesDir();
+
+                scores = new int[]{-401, -401, -401, -401, -401, -401, -401, -401, -401, -401};
                 int index = 0;
 
                 while (in.hasNext()) {
@@ -151,15 +159,37 @@ public class DisplayScore extends AppCompatActivity {
                 }
 
                 try {
-                    PrintWriter write = new PrintWriter("android.resource://com.cpt.sample/raw/score.txt");
+                    PrintWriter write = new PrintWriter(new File(file, "scores.txt"));
                     write.print("" + thisScore);
 
                     for(int i = 0; i < 9; i++) {
                         write.write(" " + scores[i]);
                     }
                     write.close();
-                } catch (FileNotFoundException e) {}
+                } catch (FileNotFoundException e) {
+                    Boolean a = null;
+                    while(a.booleanValue()){;}
+                }
+
+
                 /*
+                try {
+                    FileOutputStream out = openFileOutput("res/raw/scores.txt", MODE_WORLD_READABLE);
+                    out.write(("" + thisScore).getBytes());
+
+                    for(int i = 0; i < 9; i++) {
+                        out.write((" " + scores[i]).getBytes());
+                    }
+                    out.close();
+                    Toast.makeText(getBaseContext(), "file saved", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {}
+                */
+
+                /*
+                file.delete();
+
+                File overwrite = new File("res/raw/scores.txt");
+
                 try {
                     FileWriter write = new FileWriter(overwrite);
                     write.write("" + thisScore);
@@ -172,6 +202,5 @@ public class DisplayScore extends AppCompatActivity {
             }
         });
     }
-
 }
 
