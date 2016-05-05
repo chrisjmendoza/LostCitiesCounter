@@ -24,6 +24,7 @@
             android:name=".CalculatedScore"
             android:label="@string/title_activity_calculated_score"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CardSelector2"></activity>
     </application>
 
 </manifest>

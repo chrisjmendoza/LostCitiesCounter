@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scaleType="centerInside"
-    tools:context="com.ajochcas.lostcitiescounter.CardSelector"
-    tools:showIn="@layout/app_bar_card_selector">
+    tools:context="com.ajochcas.lostcitiescounter.CardSelector">
 
     <TextView
         android:id="@+id/selectcardtext"
@@ -216,4 +214,5 @@
         android:background="@drawable/bg_button"
         android:text="Get Your Score"
         android:textColor="@color/white" />
+
 </RelativeLayout>
