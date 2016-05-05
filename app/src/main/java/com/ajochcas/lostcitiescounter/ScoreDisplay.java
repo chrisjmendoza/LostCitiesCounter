@@ -22,7 +22,6 @@ import java.util.Scanner;
 public class ScoreDisplay extends AppCompatActivity {
     
     int thisScore;
-    int[] scores;
     Button save;
 
     @Override
@@ -66,7 +65,7 @@ public class ScoreDisplay extends AppCompatActivity {
 
                 edit.clear();
 
-                edit.putString("scores", "" + thisScore + temp);
+                edit.putString("scores", "" + thisScore + " " + temp);
 
                 edit.commit();
 
