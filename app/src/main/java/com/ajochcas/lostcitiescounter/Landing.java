@@ -40,9 +40,6 @@ public class Landing extends AppCompatActivity {
 
         String scores[] = new String[10];
 
-        //TextView vw = (TextView) findViewById(R.id.score2);
-
-        //vw.setText("Test2");
         for (int i = 0; i < 10; i++) {
             if(!in.hasNext()) {
                 break;
