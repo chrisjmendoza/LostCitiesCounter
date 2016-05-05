@@ -22,6 +22,7 @@ public class ScoreDisplay extends AppCompatActivity {
         Intent intent = getIntent();
         String message = intent.getStringExtra(CardSelector.SCORE_OUTPUT);
         TextView textView = (TextView) findViewById(R.id.scoreView);
+        assert textView != null;
         textView.setTextSize(40);
         textView.setText(message);
 
@@ -58,7 +59,7 @@ public class ScoreDisplay extends AppCompatActivity {
 
                 edit.putString("scores", "" + thisScore + " " + temp);
 
-                edit.commit();
+                edit.apply();
 
 
                 /*
