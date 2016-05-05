@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Landing extends AppCompatActivity {
+    
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
