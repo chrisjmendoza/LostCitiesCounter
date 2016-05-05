@@ -4,17 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class CardSelector extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class CardSelector extends AppCompatActivity {
 
     public final static String SCORE_OUTPUT = "com.ajochcas.lostcitiescounter.MESSAGE";
 
@@ -466,61 +461,4 @@ public class CardSelector extends AppCompatActivity
         buttonClicks();
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        assert drawer != null;
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.desert) {
-            changeExpedition(0);
-
-        } else if (id == R.id.neptune) {
-            changeExpedition(1);
-
-        } else if (id == R.id.himalayas) {
-            changeExpedition(2);
-
-        } else if (id == R.id.rainforest) {
-            changeExpedition(3);
-
-        } else if (id == R.id.volcano) {
-            changeExpedition(4);
-
-        } else if (id == R.id.nav_share) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        assert drawer != null;
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-
-    /**
-     * Required for MediaPlayer Lifecycle, pause the music on app focus loss
-     */
-    @Override
-    protected void onPause() {
-        super.onPause();
-//        volcano.release();
-//        finish();
-    }
-
-    @Override
-    public void onClick(View v) {
-
-    }
 }
