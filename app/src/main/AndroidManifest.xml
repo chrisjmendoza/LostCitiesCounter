@@ -8,10 +8,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".CardSelector"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Landing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +18,14 @@
         <activity android:name=".ScoreDisplay" />
         <activity
             android:name=".CalculatedScore"
+            android:configChanges="orientation"
             android:label="@string/title_activity_calculated_score"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CardSelector2"></activity>
+        <activity
+            android:name=".CardSelector"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

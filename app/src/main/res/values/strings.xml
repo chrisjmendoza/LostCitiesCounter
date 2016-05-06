@@ -1,19 +1,17 @@
 <resources>
-    <string name="app_name">Lost Cities Score Counter</string>
+    <string name="app_name">Lost Cities Scorer</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <!--<string name="app_name">Lost Cities Scorer</string>-->
 
-    <string name="himalayas">Himalayas</string>
+    <string name="himalayas">Himalayan Mountains</string>
     <string name="rainforest">Brazilian Rain Forest</string>
-    <string name="desert">Desert Sands</string>
+    <string name="desert">Saharan Desert</string>
     <string name="volcano">Ancient Volcanoes</string>
-    <string name="neptune">Neptune\'s Realm</string>
+    <string name="neptune">Deep Ocean</string>
 
-    <string name="send">Send</string>
     <string name="feedback">Feedback</string>
     <string name="title_activity_calculated_score">CalculatedScore</string>
     <string name="feedbackEmail">chris@cjinseattle.com</string>

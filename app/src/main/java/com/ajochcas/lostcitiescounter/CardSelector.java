@@ -4,19 +4,25 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class CardSelector extends AppCompatActivity {
+public class CardSelector extends AppCompatActivity implements
+        GestureDetector.OnGestureListener,
+        GestureDetector.OnDoubleTapListener {
 
     public final static String SCORE_OUTPUT = "com.ajochcas.lostcitiescounter.MESSAGE";
 
+    private static final String DEBUG_TAG = "Gestures";
     Activity activity;
-
     Button[] buttonArray = new Button[12];
-
+    private GestureDetectorCompat mDetector;
     // Define the 5 card sets
     private ExpeditionCardSet cardSet = new ExpeditionCardSet();
 
@@ -45,6 +51,13 @@ public class CardSelector extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_selector);
+        // Instantiate the gesture detector with the
+        // application context and an implementation of
+        // GestureDetector.OnGestureListener
+        mDetector = new GestureDetectorCompat(this, this);
+        // Set the gesture detector as the double tap
+        // listener.
+        mDetector.setOnDoubleTapListener(this);
 
         activity = this;
 
@@ -267,10 +280,6 @@ public class CardSelector extends AppCompatActivity {
             }
         });
 
-        // Set the volcano sound, this will have to be modified with other expedition sounds later
-//        volcano = MediaPlayer.create(CardSelector.this, R.raw.volcano);
-//        volcano.setLooping(true);
-//        volcano.start();
     }
 
     /**
@@ -420,8 +429,6 @@ public class CardSelector extends AppCompatActivity {
      */
     private void ActiveExpedition(boolean[] activeExpedition) {
 
-        android.app.ActionBar bar = getActionBar();
-
         // If the game was just started,
         if (!activeExpedition[0] && !activeExpedition[1] && !activeExpedition[2] && !activeExpedition[3] && !activeExpedition[4]) {
             activeExpedition[0] = true;
@@ -461,4 +468,58 @@ public class CardSelector extends AppCompatActivity {
         buttonClicks();
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        this.mDetector.onTouchEvent(event);
+        // Be sure to call the superclass implementation
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean onSingleTapConfirmed(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onDoubleTap(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onDoubleTapEvent(MotionEvent e) {
+        changeExpedition();
+        return true;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        Log.d(DEBUG_TAG, "onDown: " + e.toString());
+        changeExpedition();
+        return true;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+        Log.d(DEBUG_TAG, "onLongPress: " + e.toString());
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        return false;
+    }
 }
