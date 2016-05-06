@@ -1,11 +1,11 @@
-package com.ajochcas.lostcitiescounter;
+package com.ajochcas.lostcitiescounter.helpers;
 
 /**
  * Class stores a boolean base of hands. It handles casting
  * back and forth from an integer bitwise based representation
  * and the calculation of the expedition's value.
  */
-class ExpeditionCardSet {
+public class ExpeditionCardSet {
 
     /**
      * The base cost of going on an expedition.

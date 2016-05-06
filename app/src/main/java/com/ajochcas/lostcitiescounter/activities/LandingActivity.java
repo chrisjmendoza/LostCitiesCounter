@@ -1,4 +1,4 @@
-package com.ajochcas.lostcitiescounter;
+package com.ajochcas.lostcitiescounter.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,9 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.ajochcas.lostcitiescounter.R;
+
 import java.util.Scanner;
 
-public class Landing extends AppCompatActivity {
+public class LandingActivity extends AppCompatActivity {
     
     SharedPreferences sharedPreferences;
 
@@ -70,7 +72,7 @@ public class Landing extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Landing.this, CardSelector.class));
+                startActivity(new Intent(LandingActivity.this, CardSelectorActivity.class));
             }
         });
     }

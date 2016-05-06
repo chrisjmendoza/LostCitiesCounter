@@ -1,4 +1,4 @@
-package com.ajochcas.lostcitiescounter;
+package com.ajochcas.lostcitiescounter.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,7 +13,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class CardSelector extends AppCompatActivity implements
+import com.ajochcas.lostcitiescounter.R;
+import com.ajochcas.lostcitiescounter.helpers.ExpeditionCardSet;
+
+public class CardSelectorActivity extends AppCompatActivity implements
         GestureDetector.OnGestureListener,
         GestureDetector.OnDoubleTapListener {
 
@@ -253,7 +256,7 @@ public class CardSelector extends AppCompatActivity implements
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CardSelector.this, Landing.class));
+                startActivity(new Intent(CardSelectorActivity.this, LandingActivity.class));
             }
         });
 
@@ -263,7 +266,7 @@ public class CardSelector extends AppCompatActivity implements
             @Override
             public void onClick(View view) {
                 changeExpedition();
-                Intent intent = new Intent(CardSelector.this, ScoreDisplay.class);
+                Intent intent = new Intent(CardSelectorActivity.this, ScoreDisplayActivity.class);
                 totalScore();
                 String scoreOutput = Integer.toString(totalScore);
                 intent.putExtra(SCORE_OUTPUT, scoreOutput);

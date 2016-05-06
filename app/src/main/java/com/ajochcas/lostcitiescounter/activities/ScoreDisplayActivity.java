@@ -1,4 +1,4 @@
-package com.ajochcas.lostcitiescounter;
+package com.ajochcas.lostcitiescounter.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ScoreDisplay extends AppCompatActivity {
+import com.ajochcas.lostcitiescounter.R;
+
+public class ScoreDisplayActivity extends AppCompatActivity {
     
     int thisScore;
     Button save;
@@ -20,7 +22,7 @@ public class ScoreDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_score_display);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(CardSelector.SCORE_OUTPUT);
+        String message = intent.getStringExtra(CardSelectorActivity.SCORE_OUTPUT);
         TextView textView = (TextView) findViewById(R.id.scoreView);
         assert textView != null;
         textView.setTextSize(40);
@@ -31,7 +33,7 @@ public class ScoreDisplay extends AppCompatActivity {
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ScoreDisplay.this, Landing.class));
+                startActivity(new Intent(ScoreDisplayActivity.this, LandingActivity.class));
             }
         });
         
