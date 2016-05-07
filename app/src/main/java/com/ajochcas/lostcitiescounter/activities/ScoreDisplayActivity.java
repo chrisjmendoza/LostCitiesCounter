@@ -12,9 +12,9 @@ import android.widget.TextView;
 import com.ajochcas.lostcitiescounter.R;
 
 public class ScoreDisplayActivity extends AppCompatActivity {
-    
-    int thisScore;
-    Button save;
+
+    private int thisScore;
+    private Button save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

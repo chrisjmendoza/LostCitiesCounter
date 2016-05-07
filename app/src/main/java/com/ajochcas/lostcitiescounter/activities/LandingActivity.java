@@ -14,8 +14,8 @@ import com.ajochcas.lostcitiescounter.R;
 import java.util.Scanner;
 
 public class LandingActivity extends AppCompatActivity {
-    
-    SharedPreferences sharedPreferences;
+
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class LandingActivity extends AppCompatActivity {
         if(!sharedPreferences.contains("scores")) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putString("scores", "");
-            edit.commit();
+            edit.apply();
         }
 
         Scanner in;
@@ -50,16 +50,16 @@ public class LandingActivity extends AppCompatActivity {
         }
 
         TextView[] view = {
-                (TextView) findViewById(R.id.scoretext1),
-                (TextView) findViewById(R.id.scoretext2),
-                (TextView) findViewById(R.id.scoretext3),
-                (TextView) findViewById(R.id.scoretext4),
-                (TextView) findViewById(R.id.scoretext5),
-                (TextView) findViewById(R.id.scoretext6),
-                (TextView) findViewById(R.id.scoretext7),
-                (TextView) findViewById(R.id.scoretext8),
-                (TextView) findViewById(R.id.scoretext9),
-                (TextView) findViewById(R.id.scoretext10)
+                (TextView) findViewById(R.id.scoreText1),
+                (TextView) findViewById(R.id.scoreText2),
+                (TextView) findViewById(R.id.scoreText3),
+                (TextView) findViewById(R.id.scoreText4),
+                (TextView) findViewById(R.id.scoreText5),
+                (TextView) findViewById(R.id.scoreText6),
+                (TextView) findViewById(R.id.scoreText7),
+                (TextView) findViewById(R.id.scoreText8),
+                (TextView) findViewById(R.id.scoreText9),
+                (TextView) findViewById(R.id.scoreText10)
         };
 
         for(int i = 0; i < 10; i++) {

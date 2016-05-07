@@ -14,14 +14,12 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/scoreTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:fontFamily=""
-        android:text="Your Score Is:"
+        android:text="@string/yourScore"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="50sp" />
 
@@ -31,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Home" />
+        android:text="@string/homeButtonText" />
 
     <Button
         android:id="@+id/save"
@@ -39,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/homeButton"
         android:layout_centerHorizontal="true"
-        android:text="Save" />
+        android:text="@string/saveButtonText" />
 
 
 </RelativeLayout>

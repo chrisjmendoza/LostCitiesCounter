@@ -4,22 +4,12 @@
 /.idea/workspace.xml
 /.idea/libraries
 /.idea/*
-.DS_Store
 /build
-/captures
-
 .idea/vcs.xml
 
 .idea/encodings.xml
-<<<<<<< HEAD
 .idea/compiler.xml
 .idea/gradle.xml
 .idea/modules.xml
 .idea/misc.xml
 .idea/runConfigurations.xml
-=======
-
-.idea/compiler.xml
-
-.idea/gradle.xml
->>>>>>> origin/master

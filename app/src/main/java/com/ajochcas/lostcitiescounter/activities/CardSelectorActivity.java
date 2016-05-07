@@ -23,12 +23,14 @@ public class CardSelectorActivity extends AppCompatActivity implements
     public final static String SCORE_OUTPUT = "com.ajochcas.lostcitiescounter.MESSAGE";
 
     private static final String DEBUG_TAG = "Gestures";
-    Activity activity;
-    Button[] buttonArray = new Button[12];
+    private final Button[] buttonArray = new Button[12];
+    // This boolean determines which expedition is the "Active" expedition. Only one of these
+    // should be true at any given time after initialization.
+    private final boolean[] activeExpedition = new boolean[5];
+    private Activity activity;
     private GestureDetectorCompat mDetector;
     // Define the 5 card sets
     private ExpeditionCardSet cardSet = new ExpeditionCardSet();
-
     // Integer value of the selected Expedition Cards
     private int volcanoInt = 0;
     private int forestInt = 0;
@@ -36,7 +38,6 @@ public class CardSelectorActivity extends AppCompatActivity implements
     private int waterInt = 0;
     private int desertInt = 0;
     private int currentInt = 0;
-
     // Integer values of the current scores
     private int desertScore = 0;
     private int waterScore = 0;
@@ -45,10 +46,6 @@ public class CardSelectorActivity extends AppCompatActivity implements
     private int volcanoScore = 0;
     private int currentScore = 0;
     private int totalScore = 0;
-
-    // This boolean determines which expedition is the "Active" expedition. Only one of these
-    // should be true at any given time after initialization.
-    private boolean[] activeExpedition = new boolean[5];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -342,7 +339,7 @@ public class CardSelectorActivity extends AppCompatActivity implements
      */
     private void changeExpedition(int selected) {
 
-        TextView text = (TextView) findViewById(R.id.selectcardtext);
+        TextView text = (TextView) findViewById(R.id.expeditionTitle);
 
         int expedition = 0;
 
@@ -376,6 +373,7 @@ public class CardSelectorActivity extends AppCompatActivity implements
             // Make the selected expedition active
             activeExpedition[selected] = true;
             // Change the name of the Expedition on Screen
+            assert text != null;
             text.setText(R.string.neptune);
 
         } else if (activeExpedition[1]) {

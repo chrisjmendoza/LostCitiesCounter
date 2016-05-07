@@ -46,7 +46,7 @@ public class ExpeditionCardSet {
      * 0-2 are $ sign cards
      * 3-12 are value cards.
      */
-    public boolean[] cards;
+    public final boolean[] cards;
 
     /**
      * Default Constructor, makes an empty set of cards
@@ -56,24 +56,23 @@ public class ExpeditionCardSet {
     }
 
     /**
-     * @param representiveInt takes the current integer, in theory created
+     * @param representativeInt takes the current integer, in theory created
      *                        from the castToInt Method and re-creates
      *                        the object as if it was in that state.
      */
-    public ExpeditionCardSet(int representiveInt) {
+    public ExpeditionCardSet(int representativeInt) {
         this();
         for (int i = this.cards.length - 1; i >= 0; i--) {
             int currentInt = (int) Math.pow(2, i);
-            if (representiveInt >= currentInt) {
-                representiveInt -= currentInt;
+            if (representativeInt >= currentInt) {
+                representativeInt -= currentInt;
                 this.cards[i] = true;
             }
         }
     }
 
     /**
-     * Casts the current hand of cards repres
-     * ented in this class
+     * Casts the current hand of cards represented
      * to be casted into an integer for storage purposes. Based off
      * power of two
      *
