@@ -22,7 +22,7 @@ public class ScoreDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_score_display);
 
         //Add activity intent and grab output
-        String message = getIntent().getStringExtra(CardSelectorActivity.SCORE_OUTPUT);A
+        String message = getIntent().getStringExtra(CardSelectorActivity.SCORE_OUTPUT);
         TextView textView = (TextView) findViewById(R.id.scoreView);
         assert textView != null;
         textView.setText(message);
