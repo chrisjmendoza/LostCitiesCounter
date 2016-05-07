@@ -20,7 +20,7 @@ public class ExpeditionCardSet {
      * The total amount of cards there are per
      * Expedition.
      */
-    private static final int CARD_COUNT = 13;
+    private static final int CARD_COUNT = 12;
 
     /**
      * The amount of Multiplier Cards there are
@@ -41,6 +41,11 @@ public class ExpeditionCardSet {
      * expedition to get the bonus points.
      */
     private static final int BONUS_CARD_REQUIREMENT = 8;
+
+    /**
+     * How much how is a card worth over its position.
+     */
+    private static final int CARD_VALUE_MODIFER = 2;
 
     /**
      * 0-2 are $ sign cards
@@ -112,7 +117,7 @@ public class ExpeditionCardSet {
                     if (i < MULTIPLIER_COUNT) {
                         multiplierCount++;
                     } else {
-                        expeditionValue += i + 1 - MULTIPLIER_COUNT;
+                        expeditionValue += i - MULTIPLIER_COUNT + CARD_VALUE_MODIFER;
                     }
                 }
             }

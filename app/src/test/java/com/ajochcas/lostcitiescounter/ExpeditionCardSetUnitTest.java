@@ -12,20 +12,19 @@ import static org.junit.Assert.assertEquals;
 public class ExpeditionCardSetUnitTest {
     @Test
     public void CheckConstructorValueOne() throws Exception {
-        ExpeditionCardSet score = new ExpeditionCardSet(4369);
+        ExpeditionCardSet score = new ExpeditionCardSet(273);
         assertEquals("Index 0  ($)", true, score.cards[0]);
         assertEquals("Index 1  ($)", false, score.cards[1]);
         assertEquals("Index 2  ($)", false, score.cards[2]);
-        assertEquals("Index 3  (1)", false, score.cards[3]);
-        assertEquals("Index 4  (2)", true, score.cards[4]);
-        assertEquals("Index 5  (3)", false, score.cards[5]);
-        assertEquals("Index 6  (4)", false, score.cards[6]);
-        assertEquals("Index 7  (5)", false, score.cards[7]);
-        assertEquals("Index 8  (6)", true, score.cards[8]);
-        assertEquals("Index 9  (7)", false, score.cards[9]);
-        assertEquals("Index 10 (8)", false, score.cards[10]);
-        assertEquals("Index 11 (9)", false, score.cards[11]);
-        assertEquals("Index 12 (10)", true, score.cards[12]);
+        assertEquals("Index 3  (2)", false, score.cards[3]);
+        assertEquals("Index 4  (3)", true, score.cards[4]);
+        assertEquals("Index 5  (4)", false, score.cards[5]);
+        assertEquals("Index 6  (5)", false, score.cards[6]);
+        assertEquals("Index 7  (6)", false, score.cards[7]);
+        assertEquals("Index 8  (7)", true, score.cards[8]);
+        assertEquals("Index 9  (8)", false, score.cards[9]);
+        assertEquals("Index 10 (9)", false, score.cards[10]);
+        assertEquals("Index 11 (10)", false, score.cards[11]);
 
     }
 
@@ -35,16 +34,15 @@ public class ExpeditionCardSetUnitTest {
         assertEquals("Index 0  ($)", true, score.cards[0]);
         assertEquals("Index 1  ($)", false, score.cards[1]);
         assertEquals("Index 2  ($)", true, score.cards[2]);
-        assertEquals("Index 3  (1)", true, score.cards[3]);
-        assertEquals("Index 4  (2)", true, score.cards[4]);
-        assertEquals("Index 5  (3)", false, score.cards[5]);
-        assertEquals("Index 6  (4)", true, score.cards[6]);
-        assertEquals("Index 7  (5)", true, score.cards[7]);
-        assertEquals("Index 8  (6)", true, score.cards[8]);
-        assertEquals("Index 9  (7)", true, score.cards[9]);
-        assertEquals("Index 10 (8)", false, score.cards[10]);
-        assertEquals("Index 11 (9)", false, score.cards[11]);
-        assertEquals("Index 12 (10)", false, score.cards[12]);
+        assertEquals("Index 3  (2)", true, score.cards[3]);
+        assertEquals("Index 4  (3)", true, score.cards[4]);
+        assertEquals("Index 5  (4)", false, score.cards[5]);
+        assertEquals("Index 6  (5)", true, score.cards[6]);
+        assertEquals("Index 7  (6)", true, score.cards[7]);
+        assertEquals("Index 8  (7)", true, score.cards[8]);
+        assertEquals("Index 9  (8)", true, score.cards[9]);
+        assertEquals("Index 10 (9)", false, score.cards[10]);
+        assertEquals("Index 11 (10)", false, score.cards[11]);
     }
 
     @Test
@@ -62,26 +60,24 @@ public class ExpeditionCardSetUnitTest {
         assertEquals("Index 9  (7)", true, score.cards[9]);
         assertEquals("Index 10 (8)", false, score.cards[10]);
         assertEquals("Index 11 (9)", false, score.cards[11]);
-        assertEquals("Index 12 (10)", false, score.cards[12]);
     }
 
 
     @Test
     public void CheckConstructorEmpty() throws Exception {
-        ExpeditionCardSet score = new ExpeditionCardSet(8191);
+        ExpeditionCardSet score = new ExpeditionCardSet(4095);
         assertEquals("Index 0  ($)", true, score.cards[0]);
         assertEquals("Index 1  ($)", true, score.cards[1]);
         assertEquals("Index 2  ($)", true, score.cards[2]);
-        assertEquals("Index 3  (1)", true, score.cards[3]);
-        assertEquals("Index 4  (2)", true, score.cards[4]);
-        assertEquals("Index 5  (3)", true, score.cards[5]);
-        assertEquals("Index 6  (4)", true, score.cards[6]);
-        assertEquals("Index 7  (5)", true, score.cards[7]);
-        assertEquals("Index 8  (6)", true, score.cards[8]);
-        assertEquals("Index 9  (7)", true, score.cards[9]);
-        assertEquals("Index 10 (8)", true, score.cards[10]);
-        assertEquals("Index 11 (9)", true, score.cards[11]);
-        assertEquals("Index 12 (10)", true, score.cards[12]);
+        assertEquals("Index 3  (2)", true, score.cards[3]);
+        assertEquals("Index 4  (3)", true, score.cards[4]);
+        assertEquals("Index 5  (4)", true, score.cards[5]);
+        assertEquals("Index 6  (5)", true, score.cards[6]);
+        assertEquals("Index 7  (6)", true, score.cards[7]);
+        assertEquals("Index 8  (7)", true, score.cards[8]);
+        assertEquals("Index 9  (8)", true, score.cards[9]);
+        assertEquals("Index 10 (9)", true, score.cards[10]);
+        assertEquals("Index 11 (10)", true, score.cards[11]);
     }
 
     @Test
@@ -95,8 +91,8 @@ public class ExpeditionCardSetUnitTest {
         ExpeditionCardSet score1962 = new ExpeditionCardSet(1962);
         assertEquals("Check Cast (1962)", 1962, score1962.castToInt());
 
-        ExpeditionCardSet score6812 = new ExpeditionCardSet(6812);
-        assertEquals("Check Cast (6812)", 6812, score6812.castToInt());
+        ExpeditionCardSet score3974 = new ExpeditionCardSet(3974);
+        assertEquals("Check Cast (3974)", 3974, score3974.castToInt());
 
         ExpeditionCardSet score3828 = new ExpeditionCardSet(3828);
         assertEquals("Check Cast (3828)", 3828, score3828.castToInt());
@@ -107,22 +103,23 @@ public class ExpeditionCardSetUnitTest {
         ExpeditionCardSet score1 = new ExpeditionCardSet(1);
         assertEquals("Check Cast (1)", 1, score1.castToInt());
 
-        ExpeditionCardSet score8191 = new ExpeditionCardSet(8191);
-        assertEquals("Check Cast (8191)", 8191, score8191.castToInt());
-
     }
 
     @Test
     public void CheckCalculateValue() throws Exception {
-        ExpeditionCardSet score4369 = new ExpeditionCardSet(4369);
-        assertEquals("Check Calculated Value (4369)", -4, score4369.calculateValue());
-        ExpeditionCardSet score4371 = new ExpeditionCardSet(4371);
-        assertEquals("Check Calculated Value (4371)", -6, score4371.calculateValue());
-        ExpeditionCardSet score4375 = new ExpeditionCardSet(4375);
-        assertEquals("Check Calculated Value (4375)", -8, score4375.calculateValue());
-        ExpeditionCardSet score4383 = new ExpeditionCardSet(4383);
-        assertEquals("Check Calculated Value (4383)", -4, score4383.calculateValue());
-        ExpeditionCardSet score4415 = new ExpeditionCardSet(4415);
-        assertEquals("Check Calculated Value (4415)", 28, score4415.calculateValue());
+        ExpeditionCardSet score2321 = new ExpeditionCardSet(2321);
+        assertEquals("Check Calculated Value (2321)", 0, score2321.calculateValue());
+
+        ExpeditionCardSet score2431 = new ExpeditionCardSet(2431);
+        assertEquals("Check Calculated Value (2431)", 64, score2431.calculateValue());
+
+        ExpeditionCardSet score1752 = new ExpeditionCardSet(1752);
+        assertEquals("Check Calculated Value (1752)", 13, score1752.calculateValue());
+
+        ExpeditionCardSet score2101 = new ExpeditionCardSet(2101);
+        assertEquals("Check Calculated Value (2101)", -9, score2101.calculateValue());
+
+        ExpeditionCardSet score3451 = new ExpeditionCardSet(3451);
+        assertEquals("Check Calculated Value (3451)", 80, score3451.calculateValue());
     }
 }
