@@ -71,21 +71,6 @@ public class CardSelectorActivity extends AppCompatActivity {
      */
     private int currentInt = 0;
 
-    /*
-
-    private int desertScore = 0;
-
-    private int waterScore = 0;
-
-    private int snowScore = 0;
-
-    private int forestScore = 0;
-
-    private int volcanoScore = 0;
-
-    private int currentScore = 0;
-    private int totalScore = 0;
-    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
