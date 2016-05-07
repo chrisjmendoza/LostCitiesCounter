@@ -17,9 +17,7 @@ import com.ajochcas.lostcitiescounter.R;
 import com.ajochcas.lostcitiescounter.helpers.ExpeditionCardSet;
 import com.ajochcas.lostcitiescounter.helpers.OnClickListenerWithArg;
 
-public class CardSelectorActivity extends AppCompatActivity implements
-        GestureDetector.OnGestureListener,
-        GestureDetector.OnDoubleTapListener {
+public class CardSelectorActivity extends AppCompatActivity {
 
     /**
      * This is where the final score will be output to.
@@ -73,40 +71,21 @@ public class CardSelectorActivity extends AppCompatActivity implements
      */
     private int currentInt = 0;
 
-    /**
-     *
-     */
+    /*
+
     private int desertScore = 0;
 
-    /**
-     *
-     */
     private int waterScore = 0;
 
-    /**
-     *
-     */
     private int snowScore = 0;
 
-    /**
-     *
-     */
     private int forestScore = 0;
 
-    /**
-     *
-     */
     private int volcanoScore = 0;
 
-    /**
-     *
-     */
     private int currentScore = 0;
-
-    /**
-     *
-     */
     private int totalScore = 0;
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +108,7 @@ public class CardSelectorActivity extends AppCompatActivity implements
 
         // Change the background based on which expedition is active
         ActiveExpedition(activeExpedition);
-        for(int i = 0; i < buttonArray.length; i++) {
+        for (int i = 0; i < buttonArray.length; i++) {
             buttonArray[i].setOnClickListener(new OnClickListenerWithArg(i) {
                 @Override
                 public void onClick(View view) {
@@ -154,8 +133,7 @@ public class CardSelectorActivity extends AppCompatActivity implements
             public void onClick(View view) {
                 changeExpedition();
                 Intent intent = new Intent(CardSelectorActivity.this, ScoreDisplayActivity.class);
-                totalScore();
-                String scoreOutput = Integer.toString(totalScore);
+                String scoreOutput = Integer.toString(calcTotalScore());
                 intent.putExtra(SCORE_OUTPUT, scoreOutput);
                 startActivity(intent);
             }
@@ -172,26 +150,30 @@ public class CardSelectorActivity extends AppCompatActivity implements
     }
 
     /**
+     * This is the logic that happens on a per button
+     * basis when a button that is about a Card Selection
+     * is pressed
      *
-     * @param btnNum
+     * @param btnNum What button number was pressed?
      */
-    private void cardSelectionClick(int btnNum)
-    {
+    private void cardSelectionClick(int btnNum) {
         cardSet.cards[btnNum] = !cardSet.cards[btnNum];
-        // Update the score for the current set
-        currentScore = cardSet.calculateValue();
-        // Update the total score
-        totalScore();
         // Update the integer value of the boolean set
         currentInt = cardSet.castToInt();
         buttonClicks();
     }
 
+
     /**
-     * Calculates the total score
+     * @return
      */
-    private void totalScore() {
-        totalScore = desertScore + waterScore + snowScore + forestScore + volcanoScore;
+    private int calcTotalScore() {
+        int scoreTotal = 0;
+        int[] expeditionScores = new int[]{volcanoInt, forestInt, snowInt, waterInt, desertInt};
+        for(int i = 0; i < expeditionScores.length; i++) {
+            scoreTotal += (new ExpeditionCardSet(expeditionScores[i])).calculateValue();
+        }
+        return scoreTotal;
     }
 
     /**
@@ -213,7 +195,6 @@ public class CardSelectorActivity extends AppCompatActivity implements
      * Water to Snow, Snow to Forest, Forest to Volcano, and Volcano to Desert.
      */
     private void changeExpedition() {
-
         // Desert to Water
         if (activeExpedition[0]) {
             changeExpedition(1);
@@ -263,14 +244,10 @@ public class CardSelectorActivity extends AppCompatActivity implements
         if (activeExpedition[0]) {
             // Save the current bitmask integer value
             desertInt = currentInt;
-            // Save the current score of the expedition
-            desertScore = currentScore;
             // Make this expedition not active
             activeExpedition[0] = false;
             // Change the cardSet to reflect the chosen Expedition
             cardSet = new ExpeditionCardSet(expedition);
-            // Update the current score to the value of the selected expedition
-            currentScore = cardSet.calculateValue();
             // Update the bitmask value to the selected land
             currentInt = cardSet.castToInt();
             // Make the selected expedition active
@@ -281,10 +258,8 @@ public class CardSelectorActivity extends AppCompatActivity implements
 
         } else if (activeExpedition[1]) {
             waterInt = currentInt;
-            waterScore = currentScore;
             activeExpedition[1] = false;
             cardSet = new ExpeditionCardSet(expedition);
-            currentScore = cardSet.calculateValue();
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
             assert text != null;
@@ -292,10 +267,8 @@ public class CardSelectorActivity extends AppCompatActivity implements
 
         } else if (activeExpedition[2]) {
             snowInt = currentInt;
-            snowScore = currentScore;
             activeExpedition[2] = false;
             cardSet = new ExpeditionCardSet(expedition);
-            currentScore = cardSet.calculateValue();
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
             assert text != null;
@@ -303,10 +276,8 @@ public class CardSelectorActivity extends AppCompatActivity implements
 
         } else if (activeExpedition[3]) {
             forestInt = currentInt;
-            forestScore = currentScore;
             activeExpedition[3] = false;
             cardSet = new ExpeditionCardSet(expedition);
-            currentScore = cardSet.calculateValue();
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
             assert text != null;
@@ -314,10 +285,8 @@ public class CardSelectorActivity extends AppCompatActivity implements
 
         } else if (activeExpedition[4]) {
             volcanoInt = currentInt;
-            volcanoScore = currentScore;
             activeExpedition[4] = false;
             cardSet = new ExpeditionCardSet(expedition);
-            currentScore = cardSet.calculateValue();
             currentInt = cardSet.castToInt();
             activeExpedition[selected] = true;
             assert text != null;
@@ -369,56 +338,5 @@ public class CardSelectorActivity extends AppCompatActivity implements
         }
 
         buttonClicks();
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        // Be sure to call the superclass implementation
-        return super.onTouchEvent(event);
-    }
-
-    @Override
-    public boolean onSingleTapConfirmed(MotionEvent e) {
-        return false;
-    }
-
-    @Override
-    public boolean onDoubleTap(MotionEvent e) {
-        return false;
-    }
-
-    @Override
-    public boolean onDoubleTapEvent(MotionEvent e) {
-        changeExpedition();
-        return true;
-    }
-
-    @Override
-    public boolean onDown(MotionEvent e) {
-        changeExpedition();
-        return true;
-    }
-
-    @Override
-    public void onShowPress(MotionEvent e) {
-    }
-
-    @Override
-    public boolean onSingleTapUp(MotionEvent e) {
-        return false;
-    }
-
-    @Override
-    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        return false;
-    }
-
-    @Override
-    public void onLongPress(MotionEvent e) {
-    }
-
-    @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        return false;
     }
 }
