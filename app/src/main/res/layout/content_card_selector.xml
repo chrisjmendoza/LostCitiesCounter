@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activities.CardSelectorActivity">
 
     <TextView
@@ -14,19 +15,20 @@
         android:textSize="30sp" />
 
     <Button
+        app:layout_marginTopPercent="5%"
         android:id="@+id/x1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/expeditionTitle"
-        android:layout_marginTop="48dp"
         android:background="@drawable/bg_button"
         android:clickable="true"
         android:hapticFeedbackEnabled="true"
         android:soundEffectsEnabled="true"
         android:text="@string/$button"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_marginLeftPercent="3%"/>
 
     <Button
         android:id="@+id/x2"
@@ -56,7 +58,8 @@
         android:hapticFeedbackEnabled="true"
         android:soundEffectsEnabled="true"
         android:text="@string/$button"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_marginRightPercent="3%"/>
 
     <Button
         android:id="@+id/button2"
@@ -65,12 +68,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/x1"
-        android:layout_marginTop="40dp"
         android:background="@drawable/bg_button"
         android:clickable="true"
         android:hapticFeedbackEnabled="true"
         android:text="@string/twoButton"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_marginTopPercent="5%"
+        app:layout_marginLeftPercent="3%"
+        />
 
     <Button
         android:id="@+id/button3"
@@ -83,7 +88,8 @@
         android:clickable="true"
         android:hapticFeedbackEnabled="true"
         android:text="@string/threeButton"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        />
 
     <Button
         android:id="@+id/button4"
@@ -96,7 +102,8 @@
         android:clickable="true"
         android:hapticFeedbackEnabled="true"
         android:text="@string/fourButton"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_marginRightPercent="3%"/>
 
     <Button
         android:id="@+id/button5"
@@ -105,12 +112,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/button2"
-        android:layout_marginTop="40dp"
         android:background="@drawable/bg_button"
         android:clickable="true"
         android:hapticFeedbackEnabled="true"
         android:text="@string/fiveButton"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_marginTopPercent="5%"
+        app:layout_marginLeftPercent="3%"
+        />
 
     <Button
         android:id="@+id/button6"
@@ -136,7 +145,8 @@
         android:clickable="true"
         android:hapticFeedbackEnabled="true"
         android:text="@string/sevenButton"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_marginRightPercent="3%"/>
 
     <Button
         android:id="@+id/button8"
@@ -145,12 +155,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/button5"
-        android:layout_marginTop="40dp"
         android:background="@drawable/bg_button"
         android:clickable="true"
         android:hapticFeedbackEnabled="true"
         android:text="@string/eightButton"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_marginTopPercent="5%"
+        app:layout_marginLeftPercent="3%"/>
 
     <Button
         android:id="@+id/button9"
@@ -175,7 +186,8 @@
         android:clickable="true"
         android:hapticFeedbackEnabled="true"
         android:text="@string/tenButton"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_marginRightPercent="3%"/>
 
     <Button
         android:id="@+id/nextButton"
@@ -184,12 +196,13 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="60dp"
         android:background="@drawable/bg_button"
         android:clickable="true"
         android:hapticFeedbackEnabled="true"
         android:text="@string/nextButton"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_marginBottomPercent="5%"
+        app:layout_marginRightPercent="3%"/>
 
     <Button
         android:id="@+id/homeButton"
@@ -202,7 +215,8 @@
         android:clickable="true"
         android:hapticFeedbackEnabled="true"
         android:text="@string/homeButtonText"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_marginLeftPercent="3%"/>
 
     <Button
         android:id="@+id/calculateScore"
@@ -212,6 +226,7 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/bg_button"
         android:text="@string/getYourScore"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        />
 
-</RelativeLayout>
+</android.support.percent.PercentRelativeLayout>
