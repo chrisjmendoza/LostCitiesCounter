@@ -150,7 +150,9 @@ public class CardSelectorActivity extends AppCompatActivity {
 
 
     /**
-     * @return
+     * Calculated the current score of based off the current expedition scores.
+     *
+     * @return the current total score.
      */
     private int calcTotalScore() {
         int scoreTotal = 0;
