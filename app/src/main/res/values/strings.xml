@@ -25,5 +25,6 @@
     <string name="nineButton">9</string>
     <string name="tenButton">10</string>
     <string name="getYourScore">Get Your Score</string>
+    <string name="authors">Authors: Casey Riggin, Chris Mendoza, Joe McLaughlin, Sai Chang</string>
 
 </resources>

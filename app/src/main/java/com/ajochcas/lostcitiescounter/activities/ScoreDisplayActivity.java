@@ -21,13 +21,13 @@ public class ScoreDisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_display);
 
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(CardSelectorActivity.SCORE_OUTPUT);
+        //Add activity intent and grab output
+        String message = getIntent().getStringExtra(CardSelectorActivity.SCORE_OUTPUT);A
         TextView textView = (TextView) findViewById(R.id.scoreView);
         assert textView != null;
-        textView.setTextSize(40);
         textView.setText(message);
 
+        //Add Listenr to home button to take the user home.
         Button homeButton = (Button) findViewById(R.id.homeButton);
         assert homeButton != null;
         homeButton.setOnClickListener(new View.OnClickListener() {
@@ -37,61 +37,12 @@ public class ScoreDisplayActivity extends AppCompatActivity {
             }
         });
         
-        //save to file under here
-
-        thisScore = Integer.parseInt(message);
-
-        save = (Button) findViewById(R.id.save);
-
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                save.setClickable(false);
-
-                SharedPreferences sharedPreferences;
-
-                sharedPreferences = getSharedPreferences("scores", Context.MODE_PRIVATE);
-
-                String temp = sharedPreferences.getString("scores", null);
-
-                SharedPreferences.Editor edit = sharedPreferences.edit();
-
-                edit.clear();
-
-                edit.putString("scores", "" + thisScore + " " + temp);
-
-                edit.apply();
-
-
-                /*
-                try {
-                    FileOutputStream out = openFileOutput("res/raw/scores.txt", MODE_WORLD_READABLE);
-                    out.write(("" + thisScore).getBytes());
-
-                    for(int i = 0; i < 9; i++) {
-                        out.write((" " + scores[i]).getBytes());
-                    }
-                    out.close();
-                    Toast.makeText(getBaseContext(), "file saved", Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {}
-                */
-
-                /*
-                file.delete();
-
-                File overwrite = new File("res/raw/scores.txt");
-
-                try {
-                    FileWriter write = new FileWriter(overwrite);
-                    write.write("" + thisScore);
-
-                    for(int i = 0; i < 9; i++) {
-                        write.write(" " + scores[i]);
-                    }
-                } catch (IOException e) {}
-                */
-            }
-        });
+        //Save Score to history
+        SharedPreferences sharedPreferences = getSharedPreferences("scores", Context.MODE_PRIVATE);
+        String oldScores = sharedPreferences.getString("scores", null);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.clear();
+        edit.putString("scores", "" + Integer.parseInt(message) + " " + oldScores);
+        edit.apply();
     }
 }
