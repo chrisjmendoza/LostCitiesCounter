@@ -12,10 +12,6 @@ import android.widget.TextView;
 import com.ajochcas.lostcitiescounter.R;
 
 public class ScoreDisplayActivity extends AppCompatActivity {
-
-    private int thisScore;
-    private Button save;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +23,7 @@ public class ScoreDisplayActivity extends AppCompatActivity {
         assert textView != null;
         textView.setText(message);
 
-        //Add Listenr to home button to take the user home.
+        //Add Listener to home button to take the user home.
         Button homeButton = (Button) findViewById(R.id.homeButton);
         assert homeButton != null;
         homeButton.setOnClickListener(new View.OnClickListener() {
