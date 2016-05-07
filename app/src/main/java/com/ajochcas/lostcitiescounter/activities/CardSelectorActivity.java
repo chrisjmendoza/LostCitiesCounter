@@ -25,7 +25,7 @@ public class CardSelectorActivity extends AppCompatActivity {
     public final static String SCORE_OUTPUT = "com.ajochcas.lostcitiescounter.MESSAGE";
 
     /**
-     * The button array represent the 12 buttons that correlate to the tweleve cards
+     * The button array represent the 12 buttons that correlate to the twelve cards
      * for the current expedition
      */
     private final Button[] buttonArray = new Button[12];

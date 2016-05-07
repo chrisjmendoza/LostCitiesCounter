@@ -45,11 +45,11 @@ public class ExpeditionCardSet {
     /**
      * How much how is a card worth over its position.
      */
-    private static final int CARD_VALUE_MODIFER = 2;
+    private static final int CARD_VALUE_MODIFIER = 2;
 
     /**
      * 0-2 are $ sign cards
-     * 3-12 are value cards.
+     * 3-11 are value cards.
      */
     public final boolean[] cards;
 
@@ -117,7 +117,7 @@ public class ExpeditionCardSet {
                     if (i < MULTIPLIER_COUNT) {
                         multiplierCount++;
                     } else {
-                        expeditionValue += i - MULTIPLIER_COUNT + CARD_VALUE_MODIFER;
+                        expeditionValue += i - MULTIPLIER_COUNT + CARD_VALUE_MODIFIER;
                     }
                 }
             }

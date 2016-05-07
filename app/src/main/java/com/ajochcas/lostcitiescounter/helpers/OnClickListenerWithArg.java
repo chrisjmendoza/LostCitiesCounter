@@ -11,7 +11,7 @@ public class OnClickListenerWithArg implements View.OnClickListener {
     /**
      * What button number does this listener relate to?
      */
-    public int btnNum;
+    public final int btnNum;
 
     /**
      * Constructor that accepts which button number this is
@@ -24,7 +24,7 @@ public class OnClickListenerWithArg implements View.OnClickListener {
 
     /**
      * This is meant to be overridden, please override!
-     * @param v
+     * @param v passed View
      */
     @Override
     public void onClick(View v) {

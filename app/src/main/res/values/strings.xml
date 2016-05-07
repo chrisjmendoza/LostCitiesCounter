@@ -7,13 +7,11 @@
     <string name="volcano">Ancient Volcanoes</string>
     <string name="neptune">Deep Ocean</string>
 
-    <string name="gameTitle">Lost Cities Scorer</string>
     <string name="recentScoreText">Your Recent Scores</string>
     <string name="newGameButton">New Game</string>
     <string name="nextButton">NEXT</string>
     <string name="yourScore">Your Score Is:</string>
     <string name="homeButtonText">HOME</string>
-    <string name="saveButtonText">SAVE</string>
     <string name="$button">$</string>
     <string name="twoButton">2</string>
     <string name="threeButton">3</string>
