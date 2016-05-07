@@ -8,7 +8,8 @@
     <string name="neptune">Deep Ocean</string>
 
     <string name="gameTitle">Lost Cities Scorer</string>
-    <string name="recentScoreText">Your Recent Scores:</string>
+    <string name="recentScoreText">Your Recent Scores</string>
+    <string name="newGameButton">New Game</string>
     <string name="nextButton">NEXT</string>
     <string name="yourScore">Your Score Is:</string>
     <string name="homeButtonText">HOME</string>
